@@ -2673,7 +2673,15 @@ var SIMULATOR = {};
 		damage += enfeeble + envenomed;
 		var shatter = false;
 		if (warded) {
-			damage -= applyDamageReduction(target, 'warded', damage);
+			// damage -= applyDamageReduction(target, 'warded', damage);
+			// Imbue Ward Bug
+			// doesn't reduce damage against enemy cards on odd turns (main player turns)
+			// e.g. bolt, frostbreath, barrage, vampirism damage
+			// still reduces damage on enemy turns (scorch, poison, backlash)
+			// still works as Enhance Ward (if the card already has Ward)
+			if (!(target.uid > 100 && simulation_turns % 2 && target.absorb - target.imbued.absorb == 0)) {
+				damage -= applyDamageReduction(target, 'warded', damage);
+			}
 		}
 		if (protect) {
 			damage -= applyDamageReduction(target, 'protected', damage);
