@@ -2105,6 +2105,8 @@ var SIMULATOR = {};
 				field.uids[uid] = towerCard;
 				towerCard.isTower = function() { return true; };
 				play_card(towerCard, 'cpu', -1, true);
+				setPassiveStatus(towerCard, 'evade', 'invisible');
+				setPassiveStatus(towerCard, 'absorb', 'warded');
 			}
 		}
 
