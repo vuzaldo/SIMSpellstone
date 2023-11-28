@@ -2381,7 +2381,7 @@ var SIM_CONTROLLER = (function () {
 					battleground.owner = p;
 				}
 
-				if (turn > 1 && battleground.first_play) {
+				if (turn > 2 && battleground.first_play) {
 					continue;
 				}
 
@@ -4229,6 +4229,19 @@ var SIM_CONTROLLER = (function () {
 			}
 
 			return 1;
+		},
+
+		haste: function (src_card, target, skill) {
+
+			var haste = skill.x + getSkillMult(skill, target);
+
+			target.timer -= haste;
+
+			if (simConfig.debug) {
+				echo += debug_name(src_card) + ' hastes ' + debug_name(target) + ' by ' + haste + '<br>';
+			}
+
+			return 1;
 		}
 	};
 
@@ -4255,7 +4268,11 @@ var SIM_CONTROLLER = (function () {
 			var unearthedCard = get_card_apply_battlegrounds(unearthedUnit, null, token);
 			unearthedCard.isToken = true;
 
-			play_card(unearthedCard, dying.owner, true);
+			var uid = dying.uid + 50;
+			unearthedCard.uid = uid;
+			field.uids[uid] = unearthedCard;
+
+			play_card(unearthedCard, dying.owner, simulation_turns, true);
 
 			setPassiveStatus(unearthedCard, 'evade', 'invisible');
 			setPassiveStatus(unearthedCard, 'absorb', 'warded');
