@@ -1916,6 +1916,10 @@ var SIMULATOR = {};
 			var unearthedCard = get_card_apply_battlegrounds(unearthedUnit, null, token);
 			unearthedCard.isToken = true;
 
+			var uid = dying.uid + 50;
+			unearthedCard.uid = uid;
+			field.uids[uid] = unearthedCard;
+
 			play_card(unearthedCard, dying.owner, true);
 
 			setPassiveStatus(unearthedCard, 'evade', 'invisible');
