@@ -1920,7 +1920,7 @@ var SIMULATOR = {};
 			unearthedCard.uid = uid;
 			field.uids[uid] = unearthedCard;
 
-			play_card(unearthedCard, dying.owner, true);
+			play_card(unearthedCard, dying.owner, simulation_turns, true);
 
 			setPassiveStatus(unearthedCard, 'evade', 'invisible');
 			setPassiveStatus(unearthedCard, 'absorb', 'warded');
