@@ -42,7 +42,7 @@ var SIMULATOR = {};
 					battleground.owner = p;
 				}
 
-				if (turn > 1 && battleground.first_play) {
+				if (turn > 2 && battleground.first_play) {
 					continue;
 				}
 
@@ -1887,6 +1887,19 @@ var SIMULATOR = {};
 
 			if (simConfig.debug) {
 				echo += debug_name(src_card) + ' slows ' + debug_name(target) + ' by ' + slow + '<br>';
+			}
+
+			return 1;
+		},
+
+		haste: function (src_card, target, skill) {
+
+			var haste = skill.x + getSkillMult(skill, target);
+
+			target.timer -= haste;
+
+			if (simConfig.debug) {
+				echo += debug_name(src_card) + ' hastes ' + debug_name(target) + ' by ' + haste + '<br>';
 			}
 
 			return 1;
