@@ -2630,7 +2630,7 @@ var SIM_CONTROLLER = (function () {
 		dying.ondeath_triggered = true;
 	}
 
-	var passiveSkills = ['backlash', 'counter', 'counterburn', 'counterpoison', 'armored', 'evade', 'stasis', 'regenerate'];
+	var passiveSkills = ['backlash', 'counter', 'counterburn', 'counterpoison', 'armored', 'evade', 'stasis', 'regenerate', 'corrosive'];
 	function requiresActiveTurn(skillName) {
 		return passiveSkills.indexOf(skillName) === -1;
 	}
