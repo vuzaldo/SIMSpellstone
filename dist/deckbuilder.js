@@ -640,6 +640,10 @@ var makeUnit = (function() {
 
         card.base_health = card.health;
 
+        for (var i in original_skills)
+            if (original_skills[i].id == 'absorb')
+                card.base_absorb = original_skills[i].x;
+
         original_skills = original_skills.slice();
 
         if (skillModifiers && skillModifiers.length) {
