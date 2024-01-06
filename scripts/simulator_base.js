@@ -2695,9 +2695,16 @@ var SIMULATOR = {};
 			// doesn't reduce damage against enemy cards on odd turns (main player turns)
 			// e.g. bolt, frostbreath, barrage, vampirism damage
 			// still reduces damage on enemy turns (scorch, poison, backlash)
-			// still works as Enhance Ward (if the card already has Ward)
-			if (!(target.uid > 100 && simulation_turns % 2 && target.absorb - target.imbued.absorb == 0)) {
+			// still works as Enhance Ward (if the card already has Ward out of BGE)
+			if (!(target.uid > 100 && simulation_turns % 2 && !target.base_absorb)) {
 				damage -= applyDamageReduction(target, 'warded', damage);
+			}
+			else if (target.absorb - (target.imbued.absorb || 0)) { // ignore enhanced amount in other cases
+				var ward = target.warded - getEnhancement(target, 'absorb', target.absorb);
+				ward = ward > 0 ? ward : 0;
+				var reduction = damage > ward ? ward : damage;
+				target.warded -= reduction;
+				damage -= reduction;
 			}
 		}
 		if (protect) {
