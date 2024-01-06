@@ -2017,7 +2017,8 @@ var SIMULATOR = {};
 		for (var i = 0, len = skills.length; i < len && isAlive(); i++) {
 			var skill = skills[i];
 
-			if (skill.countdown) {
+			// skill is not ready yet (positive countdown), but was not reset in the same turn (doesn't block dualstrike activation)
+			if (skill.countdown && skill.countdown < skill.c) {
 				continue;
 			}
 
