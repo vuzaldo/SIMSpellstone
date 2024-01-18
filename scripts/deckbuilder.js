@@ -1629,6 +1629,7 @@ var showAdvancedFilters = function (skill) {
 		case 'counter':
 		case 'counterburn':
 		case 'counterpoison':
+		case 'daze':
 		case 'evade':
 		case 'evadebarrier':
 		case 'frost':
@@ -1645,6 +1646,7 @@ var showAdvancedFilters = function (skill) {
 		case 'stasis':
 		case 'taunt':
 		case 'valor':
+		case 'venom':
 			$("div#amount").show();
 			break;
 
@@ -1713,6 +1715,7 @@ var showAdvancedFilters = function (skill) {
 			$("div#amount").show();
 			$("label[for=all]").show();
 			$("div#faction").show();
+			break;
 		default:
 			return null;
 	}

@@ -277,7 +277,7 @@
       'berserk',
       'burn',
       //'burn2',
-      'cleanse',
+      //'cleanse',
       'confuse',
       'corrosive',
       'counter',
@@ -296,7 +296,7 @@
       'fury',
       'heal',
       'heartseeker',
-      'ignite',
+      //'ignite',
       'imbue',
       //'intensify',
       'invigorate',
@@ -304,7 +304,7 @@
       'leech',
       'legion',
       //'mark',
-      'magicfield',
+      //'magicfield',
       'nullify',
       'pierce',
       'poison',
@@ -314,7 +314,7 @@
       //'protect_seafolk',
       'radiance',
       'rally',
-      //'reanimate',
+      'reanimate',
       //'resurrect',
       'regenerate',
       'scorchbreath',
@@ -324,16 +324,20 @@
       'strike',
       'taunt',
       'valor',
-      //'venom',
+      'venom',
       'weaken',
       'weakenself'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);
     });
 
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     $scope.getSkillName = function (skillID) {
       var skillData = SKILL_DATA[skillID];
-      return (skillData ? skillData.name : skillID);
+      return (skillData ? capitalize(skillData.name) : skillID);
     };
 
     $scope.showAdvancedFilters = $window.showAdvancedFilters;
