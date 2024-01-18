@@ -1990,7 +1990,7 @@ var factions = {
         11: 'Goblin',
         12: 'Seafolk',
         13: 'Insect',
-        14: 'Bear',
+        14: 'Beast',
         15: 'Token',
         16: 'Mecha',
         17: 'Knight',
@@ -2012,7 +2012,7 @@ var factions = {
         Goblin: 11,
         Seafolk: 12,
         Insect: 13,
-        Bear: 14,
+        Beast: 14,
         Token: 15,
         Mecha: 16,
         Knight: 17,
@@ -3323,7 +3323,7 @@ var sortDeck = function () {
 		if (compare) return compare;
 		compare = (cardA.type - cardB.type);
 		if (compare) return compare;
-		compare = compareByID(unitA, unitB);
+		compare = compareByID(unitA, unitB, true);
 		if (compare) return compare;
 		compare = unitA.level - unitB.level;
 		if (compare) return compare;
@@ -4309,6 +4309,7 @@ var showAdvancedFilters = function (skill) {
 		case 'counter':
 		case 'counterburn':
 		case 'counterpoison':
+		case 'daze':
 		case 'evade':
 		case 'evadebarrier':
 		case 'frost':
@@ -4325,6 +4326,7 @@ var showAdvancedFilters = function (skill) {
 		case 'stasis':
 		case 'taunt':
 		case 'valor':
+		case 'venom':
 			$("div#amount").show();
 			break;
 
@@ -4393,6 +4395,7 @@ var showAdvancedFilters = function (skill) {
 			$("div#amount").show();
 			$("label[for=all]").show();
 			$("div#faction").show();
+			break;
 		default:
 			return null;
 	}
@@ -4856,12 +4859,12 @@ function quicksort(arr, comparator) {
 	return quicksort(left, comparator).concat(pivot, quicksort(right, comparator));
 }
 
-var compareByID = function (unitA, unitB) {
+var compareByID = function (unitA, unitB, compareFusion) {
 	var unitIDA = unitA.id;
 	var unitIDB = unitB.id;
 
-	var keyA = (unitIDA % 10000);
-	var keyB = (unitIDB % 10000);
+	var keyA = compareFusion ? unitIDA : (unitIDA % 10000);
+	var keyB = compareFusion ? unitIDB : (unitIDB % 10000);
 	var comparison = keyA - keyB;
 	if (comparison != 0) return comparison;
 
@@ -5476,7 +5479,7 @@ if (function (type) {
       'berserk',
       'burn',
       //'burn2',
-      'cleanse',
+      //'cleanse',
       'confuse',
       'corrosive',
       'counter',
@@ -5495,7 +5498,7 @@ if (function (type) {
       'fury',
       'heal',
       'heartseeker',
-      'ignite',
+      //'ignite',
       'imbue',
       //'intensify',
       'invigorate',
@@ -5503,7 +5506,7 @@ if (function (type) {
       'leech',
       'legion',
       //'mark',
-      'magicfield',
+      //'magicfield',
       'nullify',
       'pierce',
       'poison',
@@ -5513,7 +5516,7 @@ if (function (type) {
       //'protect_seafolk',
       'radiance',
       'rally',
-      //'reanimate',
+      'reanimate',
       //'resurrect',
       'regenerate',
       'scorchbreath',
@@ -5523,16 +5526,20 @@ if (function (type) {
       'strike',
       'taunt',
       'valor',
-      //'venom',
+      'venom',
       'weaken',
       'weakenself'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);
     });
 
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     $scope.getSkillName = function (skillID) {
       var skillData = SKILL_DATA[skillID];
-      return (skillData ? skillData.name : skillID);
+      return (skillData ? capitalize(skillData.name) : skillID);
     };
 
     $scope.showAdvancedFilters = $window.showAdvancedFilters;
