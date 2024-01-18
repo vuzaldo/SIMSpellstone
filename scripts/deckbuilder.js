@@ -643,7 +643,7 @@ var sortDeck = function () {
 		if (compare) return compare;
 		compare = (cardA.type - cardB.type);
 		if (compare) return compare;
-		compare = compareByID(unitA, unitB);
+		compare = compareByID(unitA, unitB, true);
 		if (compare) return compare;
 		compare = unitA.level - unitB.level;
 		if (compare) return compare;
@@ -2179,12 +2179,12 @@ function quicksort(arr, comparator) {
 	return quicksort(left, comparator).concat(pivot, quicksort(right, comparator));
 }
 
-var compareByID = function (unitA, unitB) {
+var compareByID = function (unitA, unitB, compareFusion) {
 	var unitIDA = unitA.id;
 	var unitIDB = unitB.id;
 
-	var keyA = (unitIDA % 10000);
-	var keyB = (unitIDB % 10000);
+	var keyA = compareFusion ? unitIDA : (unitIDA % 10000);
+	var keyB = compareFusion ? unitIDB : (unitIDB % 10000);
 	var comparison = keyA - keyB;
 	if (comparison != 0) return comparison;
 
