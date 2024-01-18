@@ -1630,6 +1630,7 @@ var showAdvancedFilters = function (skill) {
 		case 'counterburn':
 		case 'counterpoison':
 		case 'daze':
+		case 'devour':
 		case 'evade':
 		case 'evadebarrier':
 		case 'frost':
@@ -1646,7 +1647,9 @@ var showAdvancedFilters = function (skill) {
 		case 'stasis':
 		case 'taunt':
 		case 'valor':
+		case 'vampirism':
 		case 'venom':
+		case 'wingward':
 			$("div#amount").show();
 			break;
 

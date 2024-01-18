@@ -4310,6 +4310,7 @@ var showAdvancedFilters = function (skill) {
 		case 'counterburn':
 		case 'counterpoison':
 		case 'daze':
+		case 'devour':
 		case 'evade':
 		case 'evadebarrier':
 		case 'frost':
@@ -4326,7 +4327,9 @@ var showAdvancedFilters = function (skill) {
 		case 'stasis':
 		case 'taunt':
 		case 'valor':
+		case 'vampirism':
 		case 'venom':
+		case 'wingward':
 			$("div#amount").show();
 			break;
 
@@ -5486,6 +5489,7 @@ if (function (type) {
       'counterburn',
       'counterpoison',
       'daze',
+      'devour',
       'enfeeble',
       'enhance',
       //'enlarge',
@@ -5526,9 +5530,11 @@ if (function (type) {
       'strike',
       'taunt',
       'valor',
+      'vampirism',
       'venom',
       'weaken',
-      'weakenself'
+      'weakenself',
+      'wingward'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);
     });

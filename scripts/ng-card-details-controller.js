@@ -284,6 +284,7 @@
       'counterburn',
       'counterpoison',
       'daze',
+      'devour',
       'enfeeble',
       'enhance',
       //'enlarge',
@@ -324,9 +325,11 @@
       'strike',
       'taunt',
       'valor',
+      'vampirism',
       'venom',
       'weaken',
-      'weakenself'
+      'weakenself',
+      'wingward'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);
     });
