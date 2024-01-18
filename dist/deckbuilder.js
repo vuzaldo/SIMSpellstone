@@ -5489,7 +5489,7 @@ if (function (type) {
       'counterburn',
       'counterpoison',
       'daze',
-      'devour',
+      //'devour',
       'enfeeble',
       'enhance',
       //'enlarge',
@@ -5499,9 +5499,9 @@ if (function (type) {
       'fervor',
       'flurry',
       'frost',
-      'fury',
+      //'fury',
       'heal',
-      'heartseeker',
+      //'heartseeker',
       //'ignite',
       'imbue',
       //'intensify',
@@ -5518,12 +5518,12 @@ if (function (type) {
       'protect',
       //'protect_ice',
       //'protect_seafolk',
-      'radiance',
+      //'radiance',
       'rally',
-      'reanimate',
+      //'reanimate',
       //'resurrect',
       'regenerate',
-      'scorchbreath',
+      //'scorchbreath',
       'silence',
       //'slow',
       'stasis',
@@ -5534,7 +5534,7 @@ if (function (type) {
       'venom',
       'weaken',
       'weakenself',
-      'wingward'
+      //'wingward'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);
     });

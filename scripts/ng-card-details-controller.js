@@ -284,7 +284,7 @@
       'counterburn',
       'counterpoison',
       'daze',
-      'devour',
+      //'devour',
       'enfeeble',
       'enhance',
       //'enlarge',
@@ -294,9 +294,9 @@
       'fervor',
       'flurry',
       'frost',
-      'fury',
+      //'fury',
       'heal',
-      'heartseeker',
+      //'heartseeker',
       //'ignite',
       'imbue',
       //'intensify',
@@ -313,12 +313,12 @@
       'protect',
       //'protect_ice',
       //'protect_seafolk',
-      'radiance',
+      //'radiance',
       'rally',
-      'reanimate',
+      //'reanimate',
       //'resurrect',
       'regenerate',
-      'scorchbreath',
+      //'scorchbreath',
       'silence',
       //'slow',
       'stasis',
@@ -329,7 +329,7 @@
       'venom',
       'weaken',
       'weakenself',
-      'wingward'
+      //'wingward'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);
     });
