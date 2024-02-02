@@ -6440,6 +6440,7 @@ var CAMPAIGNS = {
 		"items": {
 			"3077": 0.85
 		},
+		"location_id": "17",
 		"missions": [
 			"7182",
 			"7183",
@@ -6456,6 +6457,7 @@ var CAMPAIGNS = {
 		"items": {
 			"3077": 0.9
 		},
+		"location_id": "17",
 		"missions": [
 			"7188",
 			"7189",

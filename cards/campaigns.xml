@@ -13130,12 +13130,12 @@
     <id>1361</id>
     <name>A Void Sickness</name>
     <icon id="machine_parts_200" bundle="17" />
-    <campaign_req id="36" level="1" />
+    <hidden>1</hidden>
+    <!-- <campaign_req id="36" level="1"/> -->
     <locked_start_time>1701968400</locked_start_time>
     <!-- Thursday, 07 December 2023 at 17:00:00 -->
     <battleground_id>2120</battleground_id>
-    <hidden>1</hidden>
-    <!-- <location_id>17</location_id> -->
+    <location_id>17</location_id>
     <x>880</x>
     <y>440</y>
     <combatBG>CombatBGVoid</combatBG>
@@ -13172,12 +13172,12 @@
     <id>1362</id>
     <name>Leapfrogging the Cure</name>
     <icon id="machine_parts_200" bundle="17" />
-    <campaign_req id="1361" level="1" />
+    <hidden>1</hidden>
+    <!-- <campaign_req id="1361" level="1"/> -->
     <locked_start_time>1703178000</locked_start_time>
     <!-- Thursday, 21 December 2023 at 17:00:00 -->
     <battleground_id>2120</battleground_id>
-    <hidden>1</hidden>
-    <!-- <location_id>17</location_id> -->
+    <location_id>17</location_id>
     <x>475</x>
     <y>510</y>
     <combatBG>CombatBGVoid</combatBG>
@@ -14667,10 +14667,10 @@
       <!-- Kluum -->
       <item level="5" id="104075" number="75" />
       <!-- Kluum -->
-      <item level="6" id="2802" number="50" />
-      <!-- New Conflux Convergence Super Flask in items_dsvn3j.xml -->
-      <item level="7" id="2802" number="100" />
-      <!-- New Conflux Convergence Super Flask in items_dsvn3j.xml -->
+      <item level="6" id="28180" number="50" />
+      <!-- Elemental Super Flask -->
+      <item level="7" id="28180" number="100" />
+      <!-- Elemental Super Flask -->
     </rewards>
     <find_item id="3128" drop_per_energy="0.9" />
     <!-- Matches final node (with energy reduction) -->
@@ -14750,8 +14750,8 @@
       <!-- Tethys -->
       <card level="6" id="22227" />
       <!-- Crystal Snapper -->
-      <item level="7" id="2803" number="200" />
-      <!-- Pharos Temple Super Flask -->
+      <item level="7" id="28250" number="200" />
+      <!-- Seafolk Super Flask -->
     </rewards>
     <find_item id="3059" drop_per_energy="0.9" />
     <!-- Matches final node with energy reduction -->
@@ -14830,8 +14830,8 @@
       <!-- Archangel Melkira -->
       <item level="6" id="4013" number="11" />
       <!-- Legendary Rune Sliver -->
-      <item level="7" id="2816" number="200" />
-      <!-- Skyhaven Assault Super Flask -->
+      <item level="7" id="28190" number="200" />
+      <!-- Angel Super Flask -->
     </rewards>
     <find_item id="3125" drop_per_energy="0.9" />
     <!-- Matches final node with energy reduction -->
@@ -14873,12 +14873,12 @@
       <!-- Thank You Crate -->
       <item level="3" id="20" number="12" />
       <!-- Arena Trophy -->
-      <item level="4" id="2802" number="200" />
-      <!-- Conflux Convergence Super Flask -->
-      <item level="5" id="2803" number="200" />
-      <!-- Pharos Temple Super Flask -->
-      <item level="6" id="2816" number="200" />
-      <!-- Skyhaven Assault Super Flask -->
+      <item level="4" id="28180" number="200" />
+      <!-- Elemental Super Flask -->
+      <item level="5" id="28250" number="200" />
+      <!-- Seafolk Super Flask -->
+      <item level="6" id="28190" number="200" />
+      <!-- Angel Super Flask -->
       <item level="7" id="531" number="1" />
       <!-- Special Event Mystery Package -->
     </rewards>
