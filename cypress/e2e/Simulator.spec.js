@@ -40,7 +40,7 @@ describe('Deck Tests', function() {
 
     testDeck('(1/3/1 armor 1) vs (1/6/0) ', 'QpLQAIFMQB', 'QpLQAQcHQB', 100);
     testDeck('(1/3/1 bolt 1) vs (1/3/1 armor 1) ', 'QpLQAoKOoB', 'QpLQAIFMQB', 100);
-    testDeck('(1/4/1 weaken 1) vs (1/8/0) ', 'QpLQAY7soB', 'QpLQAA6IQB', 100);
+    testDeck('(1/4/1 weaken 1) vs (2/7/0) ', 'QpLQAY7soB', 'QpLQAA6IQB', 0);
     testDeck('(3/6/1 hex 2,pierce 2) vs (3/5/0) ', 'QpLQAIjRpB', 'QpLQAIPLoB', 100);
     testDeck('(3/6/1 hex 2,pierce 2) vs (3/9/2 poison 3) ', 'QpLQAIjRpB', 'QpLQAwMXoB', 100);
     
