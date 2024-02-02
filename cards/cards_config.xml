@@ -965,8 +965,6 @@
     <id>1100</id>
     <name>Legacy</name>
     <visible>0</visible>
-    <icon>set_icon_legacy</icon>
-    <picture>set_icon_legacy</picture>
   </cardSet>
   <cardSet>
     <id>2000</id>
@@ -1009,7 +1007,7 @@
     <visible>1</visible>
     <!--<icon>set_icon_shard</icon>
 		<picture>set_icon_shard</picture>-->
-    <icon>set_icon_shard_premium</icon>
+    <icon>set_icon_legacy</icon>
     <picture>set_icon_shard_premium</picture>
     <picture_bundle>30</picture_bundle>
   </cardSet>
