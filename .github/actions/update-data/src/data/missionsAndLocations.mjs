@@ -101,7 +101,7 @@ function addCampaign(campaigns) {
     addToCampaigns({
       id: element.id.toString(),
       name: element.name,
-      location_id: element.location_id.toString(),
+      location_id: element.location_id?.toString(),
       side_mission: element.side_mission?.toString(),// && element.side_mission === "1",
       battleground_id: element.battleground_id?.toString(),
       missions: element.missions.mission_id?.map(it => it.toString()),
