@@ -64,7 +64,7 @@ var SKILL_DATA = {
 	"confuse": {
 		"desc": "Every {c} turns, inflicts Confuse on a random enemy creature, forcing it to Attack an adjacent ally. On-hit effects also apply.",
 		"icon": "confuse",
-		"name": "Confusion",
+		"name": "Confuse",
 		"type": "activation"
 	},
 	"corrosive": {
