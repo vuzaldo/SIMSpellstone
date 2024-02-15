@@ -9186,6 +9186,7 @@ json = json.replace(/\/\/.*/g, '').replace(/^\w+$/g, '');
 var skillTypes = JSON.parse(json);
 
 var skillRenames = {
+  'confuse': 'Confuse' // not "Confusion"
 };
 var iconRemappings = {
   'reinforce': 'reinforce',
