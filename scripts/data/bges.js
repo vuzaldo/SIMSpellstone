@@ -4776,10 +4776,8 @@ var BATTLEGROUNDS = {
 	"566": {
 		"desc": "All enemies start with a Tree of Eternity card.",
 		"effect": {
-			"undefined": {
-				"id": null,
-				"level": null
-			}
+			"id": 616,
+			"level": null
 		},
 		"id": "566",
 		"isTower": true,
