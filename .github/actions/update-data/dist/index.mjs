@@ -8189,10 +8189,15 @@ async function getBgeJson() {
     let effect;
     let additionalFields = {};
     if (bge.effect.starting_card) {
-      effect = Object.values(bge.effect.starting_card).reduce((effect, card) => {
-        effect[card.pvp_rank] = convertStartingCards(card);
-        return effect;
-      }, {});
+      if (bge.effect.starting_card.id) {
+        effect = convertStartingCards(bge.effect.starting_card);
+      }
+      else {
+        effect = Object.values(bge.effect.starting_card).reduce((effect, card) => {
+          effect[card.pvp_rank] = convertStartingCards(card);
+          return effect;
+        }, {});
+      }
       additionalFields.isTower = true;
     } else {
       effect = Object.entries(bge.effect)
@@ -8293,15 +8298,6 @@ function mapValues(effect, field, values) {
   }
 }
 
-function convertTowerEffect(towerEffect) {
-  var newEffects = {};
-  effects.forEach(function (effect) {
-    newEffects[effect.pvp_rank] = convertStartingCards(effect);
-  });
-  newEffects.isTower = true;
-  return newEffects;
-}
-
 function convertStartingCards(startingCard) {
   return {
     id: parseFloat(startingCard.id),
@@ -8323,43 +8319,8 @@ function fixSkillIds_(addSkill) {
   return addSkill;
 }
 
-function convertEffects(effects) {
-  if (effects[0] && effects[0].effect_type === "starting_card") {
-    var newEffects = {};
-    effects.forEach(function (effect) {
-      newEffects[effect.pvp_rank] = convertStartingCards(effect);
-    });
-    newEffects.isTower = true;
-    return newEffects;
-  } else if (Array.isArray(effects)) {
-    return effects
-      .filter(function (effect) { return effect.id !== 'displayEffect'; })
-      .map(function (effect) {
-        if (effect.effect_type === "stat") {
-          effect.effect_type = "statChange";
-        }
-        return effect;
-      });
-  } else {
-    return effects;
-  }
-}
-
 function convertId(bge) {
   bge.id = parseFloat(bge.id);
-  return bge;
-}
-
-function checkIsTower(bge, options) {
-  if (bge.effect && bge.effect.isTower) {
-    bge.isTower = true;
-    delete bge.effect.isTower;
-  }
-
-  if (bge.enemy_only || parseFloat(bge.id) > 1000) {
-    bge.hidden = true;
-  }
-
   return bge;
 }
 

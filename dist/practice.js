@@ -4456,8 +4456,8 @@ var SIM_CONTROLLER = (function () {
 		setupField(field);
 
 		if (simConfig.siegeMode) {
-			var towerBGE = BATTLEGROUNDS[simConfig.towerType];
-			var tower = towerBGE.effect[simConfig.towerLevel];
+			var towerBGE = BATTLEGROUNDS[simConfig.towerType].effect;
+			var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
 			if (tower) {
 				tower = makeUnitInfo(tower.id, tower.level);
 				var towerCard = get_card_apply_battlegrounds(tower);
