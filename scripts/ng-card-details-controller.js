@@ -195,10 +195,15 @@
 
     var setNames = {
       1000: "Basic",
+      1100: "Legacy",
       7000: "Basic",
       2000: "Reward",
+      2100: "Reward",
       3000: "Premium",
       4000: "BoxOnly",
+      5000: "Champion",
+      5100: "PremiumChampion",
+      5200: "Champion",
       9999: "StoryElements"
     };
     $scope.getSetIcon = function () {
