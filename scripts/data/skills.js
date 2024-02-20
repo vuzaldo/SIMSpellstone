@@ -412,7 +412,7 @@ var SKILL_DATA = {
 	"wingward": {
 		"desc": "Grants Barrier and half as much Invisibility to self and leftmost ally creature.",
 		"icon": "avian_barrier",
-		"name": "Wing Guard",
+		"name": "Wing Ward",
 		"type": "activation"
 	}
 };
