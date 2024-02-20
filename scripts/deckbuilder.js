@@ -81,7 +81,8 @@ var initDeckBuilder = function () {
 
 	$(window).resize(onResize);
 
-	window.onwheel = changePage;
+	// window.onwheel = changePage;
+	window.addEventListener('wheel', changePage, { passive: false });
 	window.oncontextmenu = hideContext;
 
 	$("#rows").val(storageAPI.getField("deckBuilder", "rows", 3));
@@ -2332,7 +2333,7 @@ function generateLink() {
 	if (_DEFINED("spoilers")) {
 		params.push("spoilers");
 	}
-	
+
 	var link = url_base;
 	if (params.length) {
 		link += "?" + params.join("&");
