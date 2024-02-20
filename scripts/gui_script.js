@@ -79,6 +79,9 @@ function processQueryString() {
 
 	$('#surge').prop("checked", _DEFINED("surge"));
 	$('#siege').prop("checked", _DEFINED("siege"));
+	$scope.tower = _DEFINED("siege");
+	$scope.$digest();
+
 	var tower_level = Math.min(Math.max(_GET('tower_level') || 18, 0), 18);
 	$('#tower_level').val(tower_level);
 
