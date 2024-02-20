@@ -2308,6 +2308,12 @@ function toggleInventoryMode() {
 }
 
 function generateLink() {
+	var url_base = document.URL;
+	var index_of_query = url_base.indexOf('?');
+	if (index_of_query > 0) {
+		url_base = url_base.substring(0, index_of_query);
+	}
+
 	var params = [];
 	var name = _GET('name');
 	var hash = $("#hash").val();
@@ -2326,7 +2332,8 @@ function generateLink() {
 	if (_DEFINED("spoilers")) {
 		params.push("spoilers");
 	}
-	var link = "http://thesench.github.io/SIMSpellstone/DeckBuilder.html";
+	
+	var link = url_base;
 	if (params.length) {
 		link += "?" + params.join("&");
 	}
