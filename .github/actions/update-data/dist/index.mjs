@@ -9184,6 +9184,7 @@ async function getSkillsJson() {
           desc: skill.desc,
           icon: (iconRemappings[id] || skill.icon),
           name: (skillRenames[id] || skill.name),
+          order: parseFloat(skill.order),
           type: (skillTypes[id] || (skill.upkeep ? 'earlyActivation' : 'activation'))
         };
       }
