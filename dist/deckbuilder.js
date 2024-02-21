@@ -2250,6 +2250,27 @@ var CARD_GUI = {};
         return htmlCard;
     }
 
+    var skillOrder = Object.values(SKILL_DATA).reduce(function(acc, skill) {
+        !acc[skill.name] && (acc[skill.name] = skill.order);
+        return acc;
+    }, {});
+
+    function order(element) {
+        element = element.hasChildNodes() ? element.children[0] : element;
+        return skillOrder[element.title] || 0;
+    }
+
+    function sortSkills(skills) {
+        var sorted = Array.from(skills.children).sort(function(a, b) { return order(a) - order(b); });
+        skills.innerHTML = '';
+        for (var i = 0; i < sorted.length; i++) {
+            var element = sorted[i];
+            if (!order(element)) continue;
+            skills.appendChild(element);
+            element.hasChildNodes() && skills.appendChild(document.createElement('br'));
+        }
+    }
+
     function create_card_html(card, compactSkills, onField, onclick, onrightclick, onmouseover, state) {
         var htmlCard = createDiv("card");
         // Add ID to card
@@ -2345,6 +2366,8 @@ var CARD_GUI = {};
         getSkillsHtml(card, divSkills, skillsShort, card.skill, onField, boosts);
         if (card.onDeathSkills) getSkillsHtml(card, divSkills, skillsShort, card.onDeathSkills, onField, boosts);
         getPassiveSkills(divSkills, skillsShort, card, onField, boosts);
+        sortSkills(divSkills);
+        sortSkills(skillsShort);
         var skillsDetail = divSkills.cloneNode(true);
         skillsDetail.className = "card-skills-detailed";
         if (skillsShort.hasChildNodes()) {
