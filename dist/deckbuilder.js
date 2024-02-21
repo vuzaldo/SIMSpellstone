@@ -2265,10 +2265,11 @@ var CARD_GUI = {};
             runeIDs.push(runes[i].id);
             var rune = getRune(runeID);
             for (var key in rune.stat_boost) {
+                boosts[key] = true;
                 if (key == "skill") {
                     key = rune.stat_boost.skill.id;
+                    boosts[key] = { all: rune.stat_boost.skill.all, used: false };
                 }
-                boosts[key] = true;
             }
         }
         var highlighted = card.highlighted;
@@ -2430,17 +2431,18 @@ var CARD_GUI = {};
     function getSkillsHtml(card, divSkills, skillsShort, skills, onField, boosts) {
         for (var i = 0; i < skills.length; i++) {
             var origSkill = skills[i];
+            var boost = boosts[origSkill.id];
             var skill = {
                 all: origSkill.all,
-                boosted: origSkill.boosted,
                 c: origSkill.c,
                 countdown: origSkill.countdown,
                 id: origSkill.id,
                 s: origSkill.s,
                 x: origSkill.x,
                 y: origSkill.y,
-                boosted: boosts[origSkill.id]
+                boosted: boost && !boost.used && (boost.all == origSkill.all)
             };
+            boost && (boost.used = skill.boosted);
             divSkills.appendChild(getSkillHtml(card, skill, onField, i));
             divSkills.appendChild(document.createElement('br'));
             skillsShort.appendChild(getSkillIcon(skill.id));
@@ -2636,7 +2638,7 @@ var CARD_GUI = {};
         3000: "Premium",
         4000: "BoxOnly",
         5000: "Champion",
-        5100: "Champion",
+        5100: "PremiumChampion",
         5200: "Champion",
         9999: "StoryElements"
     };
@@ -2761,7 +2763,8 @@ var initDeckBuilder = function () {
 
 	$(window).resize(onResize);
 
-	window.onwheel = changePage;
+	// window.onwheel = changePage;
+	window.addEventListener('wheel', changePage, { passive: false });
 	window.oncontextmenu = hideContext;
 
 	$("#rows").val(storageAPI.getField("deckBuilder", "rows", 3));
@@ -4988,6 +4991,12 @@ function toggleInventoryMode() {
 }
 
 function generateLink() {
+	var url_base = document.URL;
+	var index_of_query = url_base.indexOf('?');
+	if (index_of_query > 0) {
+		url_base = url_base.substring(0, index_of_query);
+	}
+
 	var params = [];
 	var name = _GET('name');
 	var hash = $("#hash").val();
@@ -5006,7 +5015,8 @@ function generateLink() {
 	if (_DEFINED("spoilers")) {
 		params.push("spoilers");
 	}
-	var link = "http://thesench.github.io/SIMSpellstone/DeckBuilder.html";
+
+	var link = url_base;
 	if (params.length) {
 		link += "?" + params.join("&");
 	}
@@ -5069,8 +5079,8 @@ if (function (type) {
 
             var cachedOnUpdate = storageAPI.onUpdateDecks;
             storageAPI.onUpdateDecks = function (savedDecks) {
-                cachedOnUpdate();
                 storageAPI.setField(SaveFields.decks, "savedDecks", savedDecks);
+                cachedOnUpdate();
             };
 
             var cachedSetShowTutorial = storageAPI.setShowTutorial;
@@ -5400,10 +5410,15 @@ if (function (type) {
 
     var setNames = {
       1000: "Basic",
+      1100: "Legacy",
       7000: "Basic",
       2000: "Reward",
+      2100: "Reward",
       3000: "Premium",
       4000: "BoxOnly",
+      5000: "Champion",
+      5100: "PremiumChampion",
+      5200: "Champion",
       9999: "StoryElements"
     };
     $scope.getSetIcon = function () {
