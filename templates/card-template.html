@@ -25,7 +25,6 @@
                 <span ng-click="incrementLevel()" ng-disabled="!nextLevel()" class="ui-icon ui-icon-circle-triangle-e"></span>
                 <span ng-click="incrementFusion()" ng-disabled="!nextFusion()" class="ui-icon ui-icon-arrowthickstop-1-e"></span>
             </div>
-            <br />
         </div>
         <div id="baseStats" class="base-stats">
             <div ng-if="!isCommander()">
@@ -40,6 +39,7 @@
                 <img src="res/cardAssets/Timer.png" class="stat-icon" />
                 <span>Delay: {{card.cost}}</span>
             </div>
+            <br>
         </div>
         <div id="skills">
             <div ng-repeat="skill in card.skill" class="skill-list" title="{{getSkillDescription(skill.id)}}">
@@ -53,6 +53,7 @@
             </div>
         </div>
         <div class="description">
+            <br>
             <span>{{card.desc}}</span>
         </div>
         <div class="bottom-left">
