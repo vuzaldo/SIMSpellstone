@@ -2262,6 +2262,7 @@ var CARD_GUI = {};
 
     function sortSkills(skills) {
         var sorted = Array.from(skills.children).sort(function(a, b) { return order(a) - order(b); });
+        var original = skills.innerHTML;
         skills.innerHTML = '';
         for (var i = 0; i < sorted.length; i++) {
             var element = sorted[i];
@@ -2269,6 +2270,7 @@ var CARD_GUI = {};
             skills.appendChild(element);
             element.hasChildNodes() && skills.appendChild(document.createElement('br'));
         }
+        skills.innerHTML = skills.children.length === sorted.length ? skills.innerHTML : original;
     }
 
     function create_card_html(card, compactSkills, onField, onclick, onrightclick, onmouseover, state) {
