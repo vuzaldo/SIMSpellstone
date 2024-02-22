@@ -6602,8 +6602,6 @@ function processQueryString() {
 	var ui = document.getElementById('ui');
 	if (!ui) return 0;
 
-	var $scope = angular.element(document.getElementById('ui')).scope();
-
 	$("#generate_link").on("click", display_generated_link);
 
 	$("#btn_simulate").on("click", SIM_CONTROLLER.startsim);
@@ -6616,8 +6614,9 @@ function processQueryString() {
 
 	$('#surge').prop("checked", _DEFINED("surge"));
 	$('#siege').prop("checked", _DEFINED("siege"));
-	$scope.tower = _DEFINED("siege");
-	$scope.$digest();
+
+	$('#tower_level').prop('disabled', !_DEFINED("siege"));
+	$('#tower_type').prop('disabled', !_DEFINED("siege"));
 
 	var tower_level = Math.min(Math.max(_GET('tower_level') || 18, 0), 18);
 	$('#tower_level').val(tower_level);
