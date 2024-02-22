@@ -6,8 +6,8 @@ export async function loadImages(cardImagesPath, spriteLookup) {
         .filter(file => file.endsWith('.jpg') || file.endsWith('.png'))
         .map(file => join(cardImagesPath, file))
         .sort((fileA, fileB) => {
-            const nameA = parse(fileA).name;
-            const nameB = parse(fileB).name;
+            const nameA = parse(fileA).name.replace(/[^a-zA-Z0-9-_]/g, '');
+            const nameB = parse(fileB).name.replace(/[^a-zA-Z0-9-_]/g, '');
             const indexA = spriteLookup[nameA] ?? Number.MAX_SAFE_INTEGER;
             const indexB = spriteLookup[nameB] ?? Number.MAX_SAFE_INTEGER;
             if (indexA !== indexB) {

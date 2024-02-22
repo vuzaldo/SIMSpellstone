@@ -2610,8 +2610,8 @@
 .sprite-Mecha_Dragon_Wood_Constructed_Dragon_B { background-position: -336px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
 .sprite-Mecha_Electric_Battery_Mecha_A { background-position: -420px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
 .sprite-Mecha_Electric_Battery_Mecha_B { background-position: -504px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
-.sprite-Mecha_Elemental_Frost _Mecha_A { background-position: -588px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
-.sprite-Mecha_Elemental_Frost _Mecha_B { background-position: -672px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
+.sprite-Mecha_Elemental_Frost_Mecha_A { background-position: -588px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
+.sprite-Mecha_Elemental_Frost_Mecha_B { background-position: -672px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
 .sprite-Mecha_Fireshard_Ultimate_A { background-position: -756px -1080px; background-image: url('../dist/sprites/SpriteSheet26.jpg'); }
 .sprite-Mecha_Flame_Rider_A { background-position: -0px -0px; background-image: url('../dist/sprites/SpriteSheet27.jpg'); }
 .sprite-Mecha_Flame_Rider_B { background-position: -84px -0px; background-image: url('../dist/sprites/SpriteSheet27.jpg'); }
@@ -2929,8 +2929,8 @@
 .sprite-Temple_Guardian_A { background-position: -252px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Wind_Chimes_A { background-position: -336px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Wyldwood_A { background-position: -420px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
-.sprite-Angel_Snowtiger_A.psd { background-position: -504px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
-.sprite-Angel_Snowtiger_B.psd { background-position: -588px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
+.sprite-Angel_Snowtiger_Apsd { background-position: -504px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
+.sprite-Angel_Snowtiger_Bpsd { background-position: -588px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Angel_Apocalypse_Beast_A { background-position: -672px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Angel_Apocalypse_Beast_B { background-position: -756px -120px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Avian_Eclipse_Garuda_A { background-position: -0px -240px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
@@ -3331,11 +3331,11 @@
 .sprite-Avian_Ashantis_Apprentice_A { background-position: -168px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Avian_Ashantis_Apprentice_B { background-position: -252px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Avian_Aurora_Ice_Mage_A { background-position: -336px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
-.sprite-Avian_Dodo_It!_A { background-position: -420px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
-.sprite-Avian_Dodo_It!_B { background-position: -504px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
+.sprite-Avian_Dodo_It_A { background-position: -420px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
+.sprite-Avian_Dodo_It_B { background-position: -504px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Avian_Eye_Cook_A { background-position: -588px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Avian_Eye_Cook_B { background-position: -672px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
-.sprite-Avian_Gaerriel,_The_Flying_Nightmare_A { background-position: -756px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
+.sprite-Avian_Gaerriel_The_Flying_Nightmare_A { background-position: -756px -1080px; background-image: url('../dist/sprites/SpriteSheet30.jpg'); }
 .sprite-Avian_Gurk_The_Traitor_A { background-position: -0px -0px; background-image: url('../dist/sprites/SpriteSheet31.jpg'); }
 .sprite-Undead_Angel_SK_Liches_A { background-position: -84px -0px; background-image: url('../dist/sprites/SpriteSheet31.jpg'); }
 .sprite-Undead_Frozen_Warrior_A { background-position: -168px -0px; background-image: url('../dist/sprites/SpriteSheet31.jpg'); }

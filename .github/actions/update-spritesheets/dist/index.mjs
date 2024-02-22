@@ -45085,7 +45085,7 @@ async function createSheet(imageFileNames, spritePath, cssFilePath, spriteLookup
 
     while (offset < images) {
         const lastImageInSheet = imageFileNames[offset + 99];
-        const lastImageName = lastImageInSheet && (0,path__WEBPACK_IMPORTED_MODULE_2__.parse)(lastImageInSheet).name;
+        const lastImageName = lastImageInSheet && (0,path__WEBPACK_IMPORTED_MODULE_2__.parse)(lastImageInSheet).name.replace(/[^a-zA-Z0-9-_]/g, '');
         if (spriteLookup[lastImageName] !== undefined) {
             offset += 100;
             sheetIndex++;
@@ -45108,7 +45108,7 @@ async function createSheet(imageFileNames, spritePath, cssFilePath, spriteLookup
             let fileName = imageFileNames[i + offset];
             let x = 84 * (i % dimensions);
             let y = width * Math.floor(i / dimensions);
-            let imageName = (0,path__WEBPACK_IMPORTED_MODULE_2__.parse)(fileName).name;
+            let imageName = (0,path__WEBPACK_IMPORTED_MODULE_2__.parse)(fileName).name.replace(/[^a-zA-Z0-9-_]/g, '');
             if (spriteLookup[imageName] === undefined) {
                 const cssClass = `.${cssClassPrefix}-${imageName}`;
                 const cssStyle = `background-position: -${x}px -${y}px; ${backgroundImage}`;
@@ -45201,8 +45201,8 @@ async function loadImages(cardImagesPath, spriteLookup) {
         .filter(file => file.endsWith('.jpg') || file.endsWith('.png'))
         .map(file => (0,path__WEBPACK_IMPORTED_MODULE_1__.join)(cardImagesPath, file))
         .sort((fileA, fileB) => {
-            const nameA = (0,path__WEBPACK_IMPORTED_MODULE_1__.parse)(fileA).name;
-            const nameB = (0,path__WEBPACK_IMPORTED_MODULE_1__.parse)(fileB).name;
+            const nameA = (0,path__WEBPACK_IMPORTED_MODULE_1__.parse)(fileA).name.replace(/[^a-zA-Z0-9-_]/g, '');
+            const nameB = (0,path__WEBPACK_IMPORTED_MODULE_1__.parse)(fileB).name.replace(/[^a-zA-Z0-9-_]/g, '');
             const indexA = spriteLookup[nameA] ?? Number.MAX_SAFE_INTEGER;
             const indexB = spriteLookup[nameB] ?? Number.MAX_SAFE_INTEGER;
             if (indexA !== indexB) {

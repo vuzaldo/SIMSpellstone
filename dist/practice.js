@@ -7502,6 +7502,7 @@ var CARD_GUI = {};
         htmlCard.setAttribute("data-runeids", runeIDs.join(","));
 
         var picture = loadCard(card.id).picture;
+        picture = picture.replace(/[^a-zA-Z0-9-_]/g, '');
         if (picture) {
             var icon = document.createElement("i");
             if (picture.indexOf("portrait_") == 0) {
