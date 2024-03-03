@@ -228,7 +228,8 @@ var CARD_GUI = {};
         return htmlCard;
     }
 
-    var skillOrder = Object.values(SKILL_DATA).reduce(function(acc, skill) {
+    var skillOrder = Object.keys(SKILL_DATA).reduce(function(acc, key) {
+        var skill = SKILL_DATA[key];
         !acc[skill.name] && (acc[skill.name] = skill.order);
         return acc;
     }, {});
@@ -239,9 +240,9 @@ var CARD_GUI = {};
     }
 
     function sortSkills(skills) {
-        var sorted = Array.from(skills.children).sort(function(a, b) { return order(a) - order(b); });
+        var sorted = [].slice.call(skills.children).sort(function(a, b) { return order(a) - order(b); });
         var original = skills.innerHTML;
-        skills.innerHTML = '';
+        skills.textContent = '';
         for (var i = 0; i < sorted.length; i++) {
             var element = sorted[i];
             if (!order(element)) continue;
