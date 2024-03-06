@@ -303,7 +303,21 @@ var makeUnit = (function() {
                         if (addedSkill.level) new_skill.level = addedSkill.level;
                         new_skill.boosted = true;
                         if (addedSkill.mult && addedSkill.base && new_skill.x == 0) continue;
-                        original_skills.push(new_skill);
+                        var enhanced = false;
+                        for (var key in original_skills) {
+                            var skill = original_skills[key];
+                            // if (skill.id === new_skill.id && skill.all == new_skill.all) {
+                            if (skill.id === new_skill.id) { // replicating the same bug in the game (lack of condition for single/all target)
+                                skill = copy_skill(skill);
+                                skill.x += new_skill.x;
+                                original_skills[key] = skill;
+                                enhanced = true;
+                                break;
+                            }
+                        }
+                        if (!enhanced) {
+                            original_skills.push(new_skill);
+                        }
                         new_card.highlighted.push(new_skill.id);
                     }
                 }
