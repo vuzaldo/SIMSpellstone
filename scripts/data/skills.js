@@ -44,21 +44,21 @@ var SKILL_DATA = {
 		"type": "onAttack"
 	},
 	"burn": {
-		"desc": "Inflicts Scorch on the opposing creature. Scorch deals damage at end of turn until Scorch is not inflicted for a turn.",
+		"desc": "Inflicts Scorch on the opposing creature. Stacks and deals damage at end of turn until Scorch is not inflicted for a turn.",
 		"icon": "burn",
 		"name": "Scorch",
 		"order": 190,
 		"type": "activation"
 	},
 	"burn2": {
-		"desc": "Inflicts Scorch on the opposing creature. Scorch deals damage at end of turn until Scorch is not inflicted for a turn.",
+		"desc": "Inflicts Scorch on the opposing creature. Stacks and deals damage at end of turn until Scorch is not inflicted for a turn.",
 		"icon": "burn",
 		"name": "Scorch 2",
 		"order": 191,
 		"type": "activation"
 	},
 	"burnself": {
-		"desc": "Deals stacking damage to this creature at end of turn. Wears off if not reapplied for a turn.",
+		"desc": "Inflicts Scorch on self. Wears off if not reapplied for a turn.",
 		"icon": "burn",
 		"name": "Scorch Self",
 		"order": 500,
@@ -100,7 +100,7 @@ var SKILL_DATA = {
 		"type": "onDamaged"
 	},
 	"counterpoison": {
-		"desc": "When damaged by an attack, Poison the attacker.",
+		"desc": "After taking Attack damage, inflicts Poison back.",
 		"icon": "poisonhide",
 		"name": "Poisonhide",
 		"order": 75,
@@ -121,7 +121,7 @@ var SKILL_DATA = {
 		"type": "onAttack"
 	},
 	"enfeeble": {
-		"desc": "Inflicts Hex on a random enemy creature, causing it to take extra damage each time it is damaged.",
+		"desc": "Inflicts Hex on a random enemy creature, causing it to take extra damage from Attacks and Skills.",
 		"icon": "hex",
 		"name": "Hex",
 		"order": 160,
@@ -219,7 +219,7 @@ var SKILL_DATA = {
 		"type": "activation"
 	},
 	"ignite": {
-		"desc": "Increases the Scorch value on a Scorched enemy creature, or deal Scorch damage to a random enemy creature",
+		"desc": "Increases the Scorch value on a Scorched enemy creature, or deal Scorch damage to a random enemy creature.",
 		"icon": "ignite",
 		"name": "Ignite",
 		"order": 500,
@@ -233,7 +233,7 @@ var SKILL_DATA = {
 		"type": "earlyActivation"
 	},
 	"intensify": {
-		"desc": "Increases the value of Scorch or Poison on an enemy creature",
+		"desc": "Increases the value of Scorch or Poison on an enemy creature.",
 		"icon": "intensify",
 		"name": "Intensify",
 		"order": 500,
@@ -254,7 +254,7 @@ var SKILL_DATA = {
 		"type": "activation"
 	},
 	"jamself": {
-		"desc": "This creature doesn't attack or activate abilities on its next turn. Activates every {c} turns.",
+		"desc": "Freezes self. Activates every {c} turns.",
 		"icon": "freeze",
 		"name": "Freeze Self",
 		"order": 500,
@@ -275,7 +275,7 @@ var SKILL_DATA = {
 		"type": "earlyActivation"
 	},
 	"magicfield": {
-		"desc": "This card is immune to debuffs. Opposing card is inflicted with Nullify 99 at the start of its turn.",
+		"desc": "This card is immune to debuffs. Opposing card is immune to any positve effects.",
 		"icon": "antimagicfield",
 		"name": "Anti-Magic Field",
 		"order": 1,
@@ -414,7 +414,7 @@ var SKILL_DATA = {
 		"type": "activation"
 	},
 	"swarm": {
-		"desc": "After dealing Attack damage, permanently increases Attack of the lowest Attack active ally creature",
+		"desc": "After dealing Attack damage, permanently increases Attack of the lowest Attack active ally creature.",
 		"icon": "berserk",
 		"name": "Swarm",
 		"order": 1,
@@ -435,7 +435,7 @@ var SKILL_DATA = {
 		"type": "onDeath"
 	},
 	"valor": {
-		"desc": "At start of turn, permanently increases Attack if opposing creature has more Attack, even while on delay.",
+		"desc": "At start of each turn, permanently increases Attack if opposing creature has more Attack, even while on delay.",
 		"icon": "valor",
 		"name": "Valor",
 		"order": 100,
@@ -449,7 +449,7 @@ var SKILL_DATA = {
 		"type": "passive"
 	},
 	"venom": {
-		"desc": "Creatures damaged by this card are afflicted with Venom, increasing damage dealt to it and dealing additional damage at the end of each turn.",
+		"desc": "After dealing Attack damage, permanently inflicts Venom, increasing damage taken. Deals damage at the end of each turn.",
 		"icon": "venom",
 		"name": "Venom",
 		"order": 500,
