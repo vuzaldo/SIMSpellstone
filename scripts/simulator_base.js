@@ -502,7 +502,8 @@ var SIMULATOR = {};
 					if (!target.isActive()) {
 						mult += (skill.on_delay_mult || 0);
 					}
-					protect_amt += Math.ceil(target.base_health * mult);
+					// protect_amt += Math.ceil(target.base_health * mult);
+					protect_amt += Math.ceil(target.base_health * mult) + 1; // Bug introduced by MarshalKylen in 09/2023 for passive barrier
 				}
 
 				target.protected += protect_amt;
@@ -666,7 +667,12 @@ var SIMULATOR = {};
 
 				affected++;
 
-				var heal_amt = heal + getSkillMult(skill, target);
+				// var heal_amt = heal + getSkillMult(skill, target);
+				var heal_amt = heal;
+				var mult = skill.mult;
+				if (mult) {
+					heal_amt += Math.ceil(target.health * mult); // Exception still using runed/invigorated HP instead of base health
+				}
 
 				var additionalMaxHealth = 0;
 				if (invigorate) {

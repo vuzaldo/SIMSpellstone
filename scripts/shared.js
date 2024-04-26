@@ -711,6 +711,7 @@ var getSkillMult = function(skill, target, defaultBase) {
     var mult = skill.mult;
     if (mult) {
         var base = skill.base || defaultBase || 'health';
+        base = base == 'health' ? 'base_health': base;
         return Math.ceil(mult * target[base]);
     } else {
         return 0;
@@ -1165,6 +1166,7 @@ function copy_skill(original_skill) {
     new_skill.ignore_nullify = original_skill.ignore_nullify;
     new_skill.card = original_skill.card;
     new_skill.level = original_skill.level;
+    new_skill.base = original_skill.base;
     return new_skill;
 }
 
