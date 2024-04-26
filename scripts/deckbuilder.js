@@ -834,7 +834,7 @@ var updateGraphs = function () {
 		delayStats.push(Number(card.cost));
 
 		var subFactions = card.sub_type;
-		if (!subFactions.length) subFactions.push(0);
+		// if (!subFactions.length) subFactions.push(0);
 		for (var s = 0; s < subFactions.length; s++) {
 			var subFaction = subFactions[s];
 			sub_types[subFaction] = (sub_types[subFaction] || 0) + 1;
@@ -980,7 +980,7 @@ var updateGraphs = function () {
 		delayStats.push(Number(card.cost));
 
 		var subFactions = card.sub_type;
-		if (!subFactions.length) subFactions.push(0);
+		// if (!subFactions.length) subFactions.push(0);
 		for (var s = 0; s < subFactions.length; s++) {
 			var subFaction = subFactions[s];
 			sub_types[subFaction] = (sub_types[subFaction] || 0) + 1;
