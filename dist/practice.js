@@ -725,6 +725,7 @@ var getSkillMult = function(skill, target, defaultBase) {
     var mult = skill.mult;
     if (mult) {
         var base = skill.base || defaultBase || 'health';
+        base = base == 'health' ? 'base_health': base;
         return Math.ceil(mult * target[base]);
     } else {
         return 0;
@@ -1179,6 +1180,7 @@ function copy_skill(original_skill) {
     new_skill.ignore_nullify = original_skill.ignore_nullify;
     new_skill.card = original_skill.card;
     new_skill.level = original_skill.level;
+    new_skill.base = original_skill.base;
     return new_skill;
 }
 
@@ -2862,7 +2864,8 @@ var SIM_CONTROLLER = (function () {
 					if (!target.isActive()) {
 						mult += (skill.on_delay_mult || 0);
 					}
-					protect_amt += Math.ceil(target.base_health * mult);
+					// protect_amt += Math.ceil(target.base_health * mult);
+					protect_amt += Math.ceil(target.base_health * mult) + 1; // Bug introduced by MarshalKylen in 09/2023 for passive barrier
 				}
 
 				target.protected += protect_amt;
@@ -3026,7 +3029,12 @@ var SIM_CONTROLLER = (function () {
 
 				affected++;
 
-				var heal_amt = heal + getSkillMult(skill, target);
+				// var heal_amt = heal + getSkillMult(skill, target);
+				var heal_amt = heal;
+				var mult = skill.mult;
+				if (mult) {
+					heal_amt += Math.ceil(target.health * mult); // Exception still using runed/invigorated HP instead of base health
+				}
 
 				var additionalMaxHealth = 0;
 				if (invigorate) {
@@ -5051,22 +5059,7 @@ var SIM_CONTROLLER = (function () {
 		damage += enfeeble + envenomed;
 		var shatter = false;
 		if (warded) {
-			// damage -= applyDamageReduction(target, 'warded', damage);
-			// Imbue Ward Bug
-			// doesn't reduce damage against enemy cards on odd turns (main player turns)
-			// e.g. bolt, frostbreath, barrage, vampirism damage
-			// still reduces damage on enemy turns (scorch, poison, backlash)
-			// still works as Enhance Ward (if the card already has Ward out of BGE)
-			if (!(target.uid > 100 && simulation_turns % 2 && !target.base_absorb)) {
-				damage -= applyDamageReduction(target, 'warded', damage);
-			}
-			else if (target.absorb - (target.imbued.absorb || 0)) { // ignore enhanced amount in other cases
-				var ward = target.warded - getEnhancement(target, 'absorb', target.absorb);
-				ward = ward > 0 ? ward : 0;
-				var reduction = damage > ward ? ward : damage;
-				target.warded -= reduction;
-				damage -= reduction;
-			}
+			damage -= applyDamageReduction(target, 'warded', damage);
 		}
 		if (protect) {
 			damage -= applyDamageReduction(target, 'protected', damage);
