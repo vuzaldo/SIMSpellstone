@@ -964,28 +964,6 @@ var updateGraphs = function () {
 	var data2 = { labels: labels, series: data2 };
 	new Chartist.Pie('#subfactionChart', data2, options);
 
-
-	var attackStats = [];
-	var healthStats = [];
-	var delayStats = [];
-	var types = {};
-	var sub_types = {};
-	for (var i = 0; i < deck.deck.length; i++) {
-		var unit = deck.deck[i];
-		var card = getCardByID(unit);
-		delays[card.cost]++;
-		types[card.type] = (types[card.type] || 0) + 1;
-		attackStats.push(Number(card.attack));
-		healthStats.push(Number(card.health));
-		delayStats.push(Number(card.cost));
-
-		var subFactions = card.sub_type;
-		// if (!subFactions.length) subFactions.push(0);
-		for (var s = 0; s < subFactions.length; s++) {
-			var subFaction = subFactions[s];
-			sub_types[subFaction] = (sub_types[subFaction] || 0) + 1;
-		}
-	}
 	var numericSort = function (a, b) { return a - b };
 	attackStats.sort(numericSort);
 	healthStats.sort(numericSort);
