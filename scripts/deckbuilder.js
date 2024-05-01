@@ -833,8 +833,8 @@ var updateGraphs = function () {
 		healthStats.push(Number(card.health));
 		delayStats.push(Number(card.cost));
 
-		var subFactions = card.sub_type;
-		// if (!subFactions.length) subFactions.push(0);
+		var subFactions = card.sub_type.slice();
+		if (!subFactions.length) subFactions.push(0);
 		for (var s = 0; s < subFactions.length; s++) {
 			var subFaction = subFactions[s];
 			sub_types[subFaction] = (sub_types[subFaction] || 0) + 1;
@@ -953,8 +953,12 @@ var updateGraphs = function () {
 	};
 	var labels = [];
 	var data2 = [];
-	for (var key in sub_types) {
+	var tribes = [0, 6, 10, 14, 9, 5, 4, 11, 13, 16, 12, 7];
+	for (var key in tribes) {
+		key = tribes[key];
+		if (!sub_types[key]) continue;
 		var factionName = factions.names[key];
+		factionName = factionName.replace('Faction', 'Tribe');
 		labels.push(factionName);
 		data2.push({
 			value: sub_types[key],

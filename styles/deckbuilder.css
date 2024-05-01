@@ -120,6 +120,18 @@
     fill: #d17905;
 }
 
+.ct-series-Mecha {
+    fill: #475867;
+}
+
+.ct-series-Beast {
+    fill: #43783d;
+}
+
+.ct-series-Tribeless {
+    fill: #86797d;
+}
+
 .ct-series-attack {
     stroke: #590579;
 }
@@ -229,6 +241,21 @@
     .ct-legend .ct-series-Ant:before {
         border-color: #d17905;
         background-color: #d17905;
+    }
+
+    .ct-legend .ct-series-Mecha:before {
+        border-color: #475867;
+        background-color: #475867;
+    }
+
+    .ct-legend .ct-series-Beast:before {
+        border-color: #43783d;
+        background-color: #43783d;
+    }
+
+    .ct-legend .ct-series-Tribeless:before {
+        border-color: #86797d;
+        background-color: #86797d;
     }
 
     .ct-legend li.inactive:before {
