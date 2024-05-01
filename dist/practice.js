@@ -232,6 +232,16 @@ var defaultStatusValues = {
     reanimated: false
 };
 
+function resetCountDowns(skills) {
+    if (!skills) return;
+    for (var i = 0; i < skills.length; i++) {
+        var skill = skills[i];
+        if (skill.countdown) {
+            skill.countdown = 0;
+        }
+    }
+}
+
 function applyDefaultStatuses(card) {
     // reset invigorate
     card.health -= card.invigorated;
@@ -240,6 +250,8 @@ function applyDefaultStatuses(card) {
     for (var status in defaultStatusValues) {
         card[status] = defaultStatusValues[status];
     }
+    resetCountDowns(card.skill);
+    resetCountDowns(card.earlyActivationSkills);
 }
 
 var CardPrototype;
