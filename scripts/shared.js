@@ -982,7 +982,7 @@ function addMissionBGE(battlegrounds, campaignID, missionLevel) {
                         effect.mult = effect.base_mult + effect.mult * levelsToScale;
                     }
                 }
-                addBgeFromList(battlegrounds, battleground, 'cpu');
+                addBgeFromList(battlegrounds, battleground, battleground.enemy_only ? 'cpu' : 'all');
             }
         }
     }
