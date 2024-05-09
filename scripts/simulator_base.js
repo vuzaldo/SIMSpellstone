@@ -145,11 +145,14 @@ var SIMULATOR = {};
 		// - Target must have taken damage
 		// - Target must be an assault
 		if (source.silence && target.isAssault() && damage > 0 && !source.silenced) {
-			target.silenced = true;
+			var silence = source.silence;
+			var enhanced = getEnhancement(source, 'silence', silence);
+			silence += enhanced;
+			target.silenced = silence;
 			// Remove passive statuses for this turn
 			target.invisible = 0;
 			target.warded = 0;
-			if (simConfig.debug) echo += debug_name(source) + ' inflicts silence on ' + debug_name(target) + '<br>';
+			if (simConfig.debug) echo += debug_name(source) + ' inflicts silence(' + silence + ') on ' + debug_name(target) + '<br>';
 		}
 
 		if (!target.isAlive() && source) {
@@ -2559,10 +2562,10 @@ var SIMULATOR = {};
 		// Do Commander Early Activation Skills
 		doEarlyActivationSkills(field_p.commander);
 
-		// Set invisibile/ward/shrouded after enhance has had a chance to fire
+		// Set invisible/ward/shrouded after enhance has had a chance to fire
 		for (var key = 0, len = field_p_assaults.length; key < len; key++) {
 			var current_assault = field_p_assaults[key];
-			if(!current_assault.silenced) {
+			if (!current_assault.silenced) {
 				setPassiveStatus(current_assault, 'evade', 'invisible');
 				setPassiveStatus(current_assault, 'absorb', 'warded');
 			}
@@ -2890,11 +2893,13 @@ var SIMULATOR = {};
 				doOnDeathSkills(current_assault, null);
 			}
 			
-			if (current_assault.silenced) {
-				current_assault.silenced = false;
+			if (current_assault.silenced == 1) {
 				// Now that silence is wearing off, re-enable these skills
 				setPassiveStatus(current_assault, 'evade', 'invisible');
 				setPassiveStatus(current_assault, 'absorb', 'warded');
+			}
+			if (current_assault.silenced) {
+				current_assault.silenced--;
 			}
 		}
 	}
@@ -3059,6 +3064,8 @@ var SIMULATOR = {};
 
 		// -- END OF CALCULATE DAMAGE --
 
+		var target_was_silenced = target.silenced;
+
 		// Deal damage to target
 		do_attack_damage(current_assault, target, damage, function (source, target, amount) {
 			echo += debug_name(source)
@@ -3192,12 +3199,14 @@ var SIMULATOR = {};
 					}
 				}
 			}
+		}
+
+		if (damage > 0 && current_assault.isAlive() && !target_was_silenced) {
 
 			// Counter
 			// - Target must have received some amount of damage
 			// - Attacker must not be already dead
 			if (target.counter) {
-
 				var counterBase = 0 + target.counter;
 				var counterEnhancement = getEnhancement(target, 'counter', counterBase);
 
@@ -3283,7 +3292,7 @@ var SIMULATOR = {};
 
 		// Corrosion
 		// - Target must have received some amount of damage
-		if (damage > 0 && target.corrosive) {
+		if (damage > 0 && target.corrosive && !target_was_silenced) {
 			var corrosion = target.corrosive || 0;
 			var enhanced = getEnhancement(target, 'corrosive', corrosion);
 			corrosion += enhanced;

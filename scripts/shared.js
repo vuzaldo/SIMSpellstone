@@ -441,7 +441,7 @@ var makeUnit = (function() {
             var skillType = SKILL_DATA[skillID].type;
             switch (skillType) {
                 case 'toggle':
-                    this[skillID] = true;
+                    this[skillID] = skill.x || 1;
                     this.imbued[skillID] = 1;
                     return;
 
@@ -1148,7 +1148,7 @@ function setSkill(new_card, skill) {
     var skillType = SKILL_DATA[skillID].type;
     switch (skillType) {
         case 'toggle':
-            new_card[skillID] = true;
+            new_card[skillID] = skill.x || 1;
             return;
 
         case 'passive':
