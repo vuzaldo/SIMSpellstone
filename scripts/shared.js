@@ -688,6 +688,14 @@ var makeUnit = (function() {
 
         // Apply BGEs
         if (skillModifiers && skillModifiers.length) {
+
+            // Scale attributes before adding BGE skills
+            skillModifiers.sort(function(a, b) { // move to the start of the array
+                if (a.modifierType === 'scale_attributes') return -1;
+                if (b.modifierType === 'scale_attributes') return 1;
+                return 0;
+            });
+
             modifySkillsPostRune(card, original_skills, skillModifiers, isToken);
         }
 
