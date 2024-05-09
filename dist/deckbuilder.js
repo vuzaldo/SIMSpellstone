@@ -340,9 +340,11 @@ var makeUnit = (function() {
                         var mult = scaling.mult;
                         var plusAttack = Math.ceil(new_card.attack * mult);
                         new_card.attack += plusAttack;
+                        new_card.attack = Math.min(new_card.attack, 99);
                         new_card.highlighted.push('attack');
                         var plusHealth = Math.ceil(new_card.health * mult);
                         new_card.health += plusHealth;
+                        new_card.health = Math.min(new_card.health, 99);
                         new_card.highlighted.push('health');
                         scaleSkills(new_card, original_skills, mult);
                     }
@@ -453,7 +455,7 @@ var makeUnit = (function() {
             var skillType = SKILL_DATA[skillID].type;
             switch (skillType) {
                 case 'toggle':
-                    this[skillID] = true;
+                    this[skillID] = skill.x || 1;
                     this.imbued[skillID] = 1;
                     return;
 
@@ -700,6 +702,14 @@ var makeUnit = (function() {
 
         // Apply BGEs
         if (skillModifiers && skillModifiers.length) {
+
+            // Scale attributes before adding BGE skills
+            skillModifiers.sort(function(a, b) { // move to the start of the array
+                if (a.modifierType === 'scale_attributes') return -1;
+                if (b.modifierType === 'scale_attributes') return 1;
+                return 0;
+            });
+
             modifySkillsPostRune(card, original_skills, skillModifiers, isToken);
         }
 
@@ -983,8 +993,8 @@ function addMissionBGE(battlegrounds, campaignID, missionLevel) {
         var id = campaign.battleground_id;
         if (id) {
             var battleground = BATTLEGROUNDS[id];
-            var effectiveLevel = Math.min(missionLevel, Number(battleground.max_level) || Infinity);
-            effectiveLevel = Number(effectiveLevel) - 1; // Convert to 0-based
+            var effectiveLevel = Number(missionLevel) - 1; // Convert to 0-based
+            effectiveLevel = Math.min(effectiveLevel, Number(battleground.max_level) || Infinity);
             if (!battleground.starting_level || Number(battleground.starting_level) <= effectiveLevel) {
                 if (battleground.scale_with_level) {
                     battleground = JSON.parse(JSON.stringify(battleground));
@@ -994,7 +1004,7 @@ function addMissionBGE(battlegrounds, campaignID, missionLevel) {
                         effect.mult = effect.base_mult + effect.mult * levelsToScale;
                     }
                 }
-                addBgeFromList(battlegrounds, battleground, 'cpu');
+                addBgeFromList(battlegrounds, battleground, battleground.enemy_only ? 'cpu' : 'all');
             }
         }
     }
@@ -1152,7 +1162,7 @@ function setSkill(new_card, skill) {
     var skillType = SKILL_DATA[skillID].type;
     switch (skillType) {
         case 'toggle':
-            new_card[skillID] = true;
+            new_card[skillID] = skill.x || 1;
             return;
 
         case 'passive':
@@ -1620,13 +1630,13 @@ function getPresetCommander(deckInfo, level) {
 }
 
 function getUpgradePoints(level, maxedAt, maxUpgradePoints) {
-    var percentCompvare;
+    var percentCompare;
     if (maxedAt == 7) {
-        percentCompvare = (level - 1) / (maxedAt - 1);
+        percentCompare = (level - 1) / (maxedAt - 1);
     } else {
-        percentCompvare = (level / maxedAt);
+        percentCompare = (level / maxedAt);
     }
-    var points = Math.ceil(maxUpgradePoints * percentCompvare);
+    var points = Math.ceil(maxUpgradePoints * percentCompare);
     return points;
 }
 
@@ -1683,7 +1693,9 @@ function getPresetUnit(unitInfo, level, maxedAt) {
     } else if (level > 1 && is_commander(cardID)) {
         var maxUpgrades = CARDS[cardID].maxLevel - 1;
         var upgradesPerLevel = maxUpgrades / (maxedAt - 1);
-        var levelsFromBase = level - 1;
+        upgradesPerLevel = Math.ceil(upgradesPerLevel * 100) / 100;
+        // var levelsFromBase = level - 1;
+        var levelsFromBase = level;
         unitLevel = Math.ceil(upgradesPerLevel * levelsFromBase);
     }
 
@@ -2490,6 +2502,7 @@ var CARD_GUI = {};
         for (var i = 0; i < skills.length; i++) {
             var origSkill = skills[i];
             var boost = boosts[origSkill.id];
+            var bgeBoost = boost === true;
             var skill = {
                 all: origSkill.all,
                 c: origSkill.c,
@@ -2498,7 +2511,7 @@ var CARD_GUI = {};
                 s: origSkill.s,
                 x: origSkill.x,
                 y: origSkill.y,
-                boosted: boost && !boost.used && (boost.all == origSkill.all)
+                boosted: boost && !boost.used && (boost.all == origSkill.all) || bgeBoost
             };
             boost && (boost.used = skill.boosted);
             divSkills.appendChild(getSkillHtml(card, skill, onField, i));

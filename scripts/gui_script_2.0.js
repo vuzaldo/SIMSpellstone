@@ -146,11 +146,11 @@ $(function () {
             if (RAIDS[selectedRaid].type === "Dungeon") {
                 raidLevel.attr("max", 500);
             } else {
-                raidLevel.attr("max", 40);
+                raidLevel.attr("max", 50);
             }
         } else {
             newDeck = hash_decode('');
-            raidLevel.attr("max", 40);
+            raidLevel.attr("max", 50);
         }
 
         deckChanged("defend_deck", newDeck, 'cpu');
