@@ -91,7 +91,7 @@
                                                 <option ng-repeat="mission in missions | filterChildren:selections.campaign:campaigns:'missions':'id'" value="{{mission.id}}" class="black">{{mission.name}}</option>
                                             </select>
                                             <label for="mission_level" class="small-font">Level: </label>
-                                            <input type="NUMBER" id="mission_level" min="1" max="8" step="1" value="7" size="6">
+                                            <input type="NUMBER" id="mission_level" min="1" max="100" step="1" value="7" size="6">
                                         </div>
                                         <input id="config-map-bge" type="button" onclick="showMapBGEs();" value="Map BGEs" ng-disabled="(mapBattlegrounds | filterByParent:selections.location:'location_id').length === 0" />
                                         <br />
@@ -102,7 +102,7 @@
                                                 <option ng-repeat="raid in filteredRaids()" value="{{raid.id}}" class="black">{{raid.name}}</option>
                                             </select>
                                             <label for="raid_level" class="small-font">Level: </label>
-                                            <input type="NUMBER" id="raid_level" min="1" max="40" step="1" value="25" size="6">
+                                            <input type="NUMBER" id="raid_level" min="1" max="50" step="1" value="25" size="6">
                                         </div>
                                     </div>
                                 </div>
