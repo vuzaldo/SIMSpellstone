@@ -437,6 +437,7 @@ var CARD_GUI = {};
         for (var i = 0; i < skills.length; i++) {
             var origSkill = skills[i];
             var boost = boosts[origSkill.id];
+            var bgeBoost = boost === true;
             var skill = {
                 all: origSkill.all,
                 c: origSkill.c,
@@ -445,7 +446,7 @@ var CARD_GUI = {};
                 s: origSkill.s,
                 x: origSkill.x,
                 y: origSkill.y,
-                boosted: boost && !boost.used && (boost.all == origSkill.all)
+                boosted: boost && !boost.used && (boost.all == origSkill.all) || bgeBoost
             };
             boost && (boost.used = skill.boosted);
             divSkills.appendChild(getSkillHtml(card, skill, onField, i));
