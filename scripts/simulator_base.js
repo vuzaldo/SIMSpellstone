@@ -2927,12 +2927,12 @@ var SIMULATOR = {};
 			if (!target.taunt) {
 				// Check left first, then right
 				var adjacent = field_o_assaults[target.key - 1];
-				if (adjacent && adjacent.taunt) {
+				if (adjacent && adjacent.taunt && adjacent.isAlive()) {
 					target = adjacent;
 					taunted = true;
 				} else {
 					var adjacent = field_o_assaults[target.key + 1];
-					if (adjacent && adjacent.taunt) {
+					if (adjacent && adjacent.taunt && adjacent.isAlive()) {
 						target = adjacent;
 						taunted = true;
 					}
