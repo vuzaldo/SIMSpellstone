@@ -505,8 +505,8 @@ var SIMULATOR = {};
 					if (!target.isActive()) {
 						mult += (skill.on_delay_mult || 0);
 					}
-					// protect_amt += Math.ceil(target.base_health * mult);
-					protect_amt += Math.ceil(target.base_health * mult) + 1; // Bug introduced by MarshalKylen in 09/2023 for passive barrier
+					protect_amt += Math.ceil(target.base_health * mult);
+					if (!onlyOnDelay) protect_amt += 1; // Bug introduced by MarshalKylen in 09/2023 for passive barrier
 				}
 
 				target.protected += protect_amt;
