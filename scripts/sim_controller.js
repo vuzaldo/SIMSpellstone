@@ -27,7 +27,7 @@ var SIM_CONTROLLER = (function () {
 
             playerDeck: $('#deck1').val(),
             playerOrdered: $('#ordered').is(':checked'),
-            playerExactOrdered: $('#ordered2').is(':checked'),
+            playerExactOrdered: $('#exactorder').is(':checked'),
 
             cpuDeck: $('#deck2').val(),
             cpuOrdered: $('#ordered2').is(':checked'),
