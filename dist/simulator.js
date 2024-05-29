@@ -2092,7 +2092,7 @@ var SIM_CONTROLLER = (function () {
 
             playerDeck: $('#deck1').val(),
             playerOrdered: $('#ordered').is(':checked'),
-            playerExactOrdered: $('#ordered2').is(':checked'),
+            playerExactOrdered: $('#exactorder').is(':checked'),
 
             cpuDeck: $('#deck2').val(),
             cpuOrdered: $('#ordered2').is(':checked'),
@@ -2431,6 +2431,7 @@ var SIM_CONTROLLER = (function () {
 				if (turn > 2 && battleground.first_play) {
 					continue;
 				}
+				if (turn == -1 && battleground.first_play) continue; // Tower isn't affected by first_play
 
 				battleground.onCardPlayed(card, deck[p].deck, deck[o].deck);
 			}
