@@ -2605,7 +2605,7 @@ var SIM_CONTROLLER = (function () {
 		if (len === 0) return;
 
 		if (source_card.silenced) {
-			if (simConfig.debug) echo += debug_name(source_card) + " is silenced and cannot use skills</br>";
+			if (simConfig.debug) echo += debug_name(source_card) + " is silenced and cannot use skills<br>";
 			return;
 		}
 
@@ -2893,7 +2893,7 @@ var SIM_CONTROLLER = (function () {
 						mult += (skill.on_delay_mult || 0);
 					}
 					protect_amt += Math.ceil(target.base_health * mult);
-					if (!onlyOnDelay) protect_amt += 1; // Bug introduced by MarshalKylen in 09/2023 for passive barrier
+					// if (!onlyOnDelay) protect_amt += 1; // Bug introduced by MarshalKylen in 09/2023 for passive barrier
 				}
 
 				target.protected += protect_amt;
@@ -2942,7 +2942,7 @@ var SIM_CONTROLLER = (function () {
 
 				var protect_amt = protect;
 				// Adjacent allies only get half
-				if (target != src_card) protect_amt = Math.ceil(protect_amt/2);
+				if (target != src_card) protect_amt = Math.ceil(protect_amt / 2);
 
 				target.protected += protect_amt;
 				if (simConfig.debug) {
@@ -2991,7 +2991,7 @@ var SIM_CONTROLLER = (function () {
 				affected++;
 				
 				target.protected += wingward;
-				var invisBoost = Math.ceil(wingward/2);
+				var invisBoost = Math.ceil(wingward / 2);
 				target.invisible += invisBoost;
 				if (simConfig.debug) {
 					if (enhanced) echo += '<u>(Enhance: +' + enhanced + ')</u><br>';
@@ -3529,7 +3529,7 @@ var SIM_CONTROLLER = (function () {
 		// - Targets active_next_turn, unjammed, enemy assaults with attack > 0
 		// - Can be evaded
 		// - Can be enhanced
-		// - Does not trigger backlash
+		// - Does not trigger Backlash
 		weakenself: function (src_card, skill) {
 			return activationSkills.weaken(src_card, skill);
 		},
@@ -3700,8 +3700,8 @@ var SIM_CONTROLLER = (function () {
 
 				if (damageDealt > 0) {
 					var healthMissing = sourceCard.health - sourceCard.health_left;
-					var healing = Math.min(sourceCard.vampirism, healthMissing);
-					if (echo && healing) echo += debug_name(sourceCard) + ' recovers ' + healing + ' health from vampirism<br />';
+					var healing = Math.min(vampirism, healthMissing);
+					if (echo && healing) echo += debug_name(sourceCard) + ' recovers ' + healing + ' health from vampirism<br>';
 					sourceCard.health_left += healing;
 				}
 
@@ -3752,13 +3752,13 @@ var SIM_CONTROLLER = (function () {
 				affected++;
 
 				target.poisoned = 0;
-                target.enfeebled = 0;
-                target.scorched = 0;
-                target.jammed = false;
-                target.envenomed = 0;
-                target.attack_weaken = 0;
-                target.silenced = false;
-                target.confused = false;
+				target.enfeebled = 0;
+				target.scorched = 0;
+				target.jammed = false;
+				target.envenomed = 0;
+				target.attack_weaken = 0;
+				target.silenced = false;
+				target.confused = false;
 
 				if (simConfig.debug) {
 					echo += debug_name(src_card) + ' cleanses ' + debug_name(target);
@@ -4014,7 +4014,7 @@ var SIM_CONTROLLER = (function () {
 		// - Can be evaded
 		// - Must calculate enfeeble/protect
 		// - Can be enhanced
-		// - Does not trigger backlash
+		// - Does not trigger Backlash
 		barrage: function (src_card, skill) {
 
 			var barrages = skill.x;
@@ -4335,7 +4335,7 @@ var SIM_CONTROLLER = (function () {
 			setPassiveStatus(unearthedCard, 'absorb', 'warded');
 
 			if (simConfig.debug) {
-				echo += debug_name(unearthedCard) + ' is unearthed</br>';
+				echo += debug_name(unearthedCard) + ' is unearthed<br>';
 			}
 
 			return 1;
@@ -4354,7 +4354,7 @@ var SIM_CONTROLLER = (function () {
 			// TODO: Change art
 
 			if (simConfig.debug) {
-				echo += ' and is reanimated</br>';
+				echo += ' and is reanimated<br>';
 			}
 
 			return 1;
@@ -4391,7 +4391,7 @@ var SIM_CONTROLLER = (function () {
 			weakest.attack_berserk += swarm;
 
 			if (simConfig.debug) {
-				echo += debug_name(attacker) + ' activates swarm, boosting the attack of ' + debug_name(attacker) + ' by ' + swarm + '</br>';
+				echo += debug_name(attacker) + ' activates swarm, boosting the attack of ' + debug_name(attacker) + ' by ' + swarm + '<br>';
 			}
 
 			return 1;
@@ -4403,7 +4403,7 @@ var SIM_CONTROLLER = (function () {
 	function activation_skills(src_card) {
 
 		if (src_card.silenced) {
-			if (simConfig.debug) echo += debug_name(src_card) + " is silenced and cannot use skills</br>";
+			if (simConfig.debug) echo += debug_name(src_card) + " is silenced and cannot use skills<br>";
 			return;
 		}
 
@@ -5489,7 +5489,7 @@ var SIM_CONTROLLER = (function () {
 			// Venom
 			// - Target must have taken damage
 			// - Target must be an assault
-			// - Sets poisioned to greater of target's current poisioned or new poison
+			// - Sets poisoned to greater of target's current poisoned or new poison
 			// - Sets envenomed to greater of target's current envenomed or new venom
 			if (current_assault.venom) {
 				var venom = current_assault.venom;
@@ -5503,7 +5503,7 @@ var SIM_CONTROLLER = (function () {
 			}
 
 			// Nullify
-			// - Attacker must have taken damage
+			// - Target must have taken damage
 			// - Target must be an assault
 			if (current_assault.nullify) {
 				var nullify = current_assault.nullify;
@@ -5531,59 +5531,91 @@ var SIM_CONTROLLER = (function () {
 			iceshatter(target);
 		}
 
-		if (damage > 0 && current_assault.isAlive()) {
+		// Corrosion
+		// - Target must have received some amount of damage
+		if (damage > 0 && target.corrosive && !target_was_silenced) {
+			var corrosion = target.corrosive || 0;
+			var enhanced = getEnhancement(target, 'corrosive', corrosion);
+			corrosion += enhanced;
+			if (current_assault.corroded) {
+				current_assault.corroded.amount += corrosion;
+				current_assault.corroded.timer = 2;
+			} else {
+				current_assault.corroded = { amount: corrosion, timer: 2 };
+			}
+			if (simConfig.debug) echo += debug_name(target) + ' inflicts corrosion(' + corrosion + ') on ' + debug_name(current_assault) + '<br>';
+			current_assault.attack_corroded = current_assault.corroded.amount;
+			if (simConfig.debug) {
+				echo += debug_name(current_assault) + ' loses ' + corrosion + ' attack to corrosion<br>';
+			}
+		}
+
+		if (damage > 0 && current_assault.isAlive() && !current_assault.silenced) {
+
+			// Berserk
+			// - Must have done some damage to an assault unit
+			if (current_assault.berserk) {
+				var berserk = current_assault.berserk;
+				var enhanced = getEnhancement(current_assault, 'berserk', berserk);
+				berserk += enhanced;
+				berserk = adjustAttackIncrease(current_assault, berserk);
+
+				current_assault.attack_berserk += berserk;
+				if (simConfig.debug) echo += debug_name(current_assault) + ' activates berserk and gains ' + berserk + ' attack<br>';
+			}
+
+			// Swarm
+			// - Must have done some damage to an assault unit
+			// - Procs after corrosion is applied to the current unit
+			if (current_assault.swarm) {
+				onAttackSkills.swarm(current_assault, target);
+			}
+
 			// Leech
 			// - Must have dealt damage
-			// - Cannot leech more than damage dealt
-			// - Cannot leech more health than damage sustained
 			// - Leecher must not be already dead
 			// - Leecher must not be at full health
-			// - Increases attack too during Invigorate battleground effect
-			if(!current_assault.silenced) {
-				if (current_assault.leech && current_assault.isDamaged()) {
-
-					var leech_health = current_assault.leech;
-					var enhanced = getEnhancement(current_assault, 'leech', leech_health);
-					leech_health += enhanced;
-					var healthMissing = current_assault.health - current_assault.health_left;
-					if (leech_health >= healthMissing) {
-						leech_health = healthMissing;
-					}
-
-					current_assault.health_left += leech_health;
-					if (simConfig.debug) echo += debug_name(current_assault) + ' siphons ' + leech_health + ' health<br>';
+			if (current_assault.leech && current_assault.isDamaged()) {
+				var leech_health = current_assault.leech;
+				var enhanced = getEnhancement(current_assault, 'leech', leech_health);
+				leech_health += enhanced;
+				var healthMissing = current_assault.health - current_assault.health_left;
+				if (leech_health >= healthMissing) {
+					leech_health = healthMissing;
 				}
 
-				if (current_assault.reinforce) {
-					var reinforce = current_assault.reinforce;
-					var enhanced = getEnhancement(current_assault, 'reinforce', reinforce);
-					reinforce += enhanced;
+				current_assault.health_left += leech_health;
+				if (simConfig.debug) echo += debug_name(current_assault) + ' siphons ' + leech_health + ' health<br>';
+			}
 
-					current_assault.protected += reinforce;
-					if (simConfig.debug) echo += debug_name(current_assault) + ' reinforces itself with barrier ' + reinforce + '<br>';
+			if (current_assault.reinforce) {
+				var reinforce = current_assault.reinforce;
+				var enhanced = getEnhancement(current_assault, 'reinforce', reinforce);
+				reinforce += enhanced;
+
+				current_assault.protected += reinforce;
+				if (simConfig.debug) echo += debug_name(current_assault) + ' reinforces itself with barrier ' + reinforce + '<br>';
+			}
+
+			// Devour
+			// - Must have done some damage to an assault unit
+			if (current_assault.devour) {
+				var devour = current_assault.devour;
+				var enhanced = getEnhancement(current_assault, 'devour', devour);
+				devour += enhanced;
+				devour = adjustAttackIncrease(current_assault, devour);
+
+				current_assault.attack_berserk += devour;
+
+				var healing = Math.min(devour, current_assault.health - current_assault.health_left);
+				if(healing) {
+					current_assault.health_left += healing;
 				}
 
-				// Devour
-				// - Must have done some damage to an assault unit
-				if (current_assault.devour) {
-
-					var devour = current_assault.devour;
-					var enhanced = getEnhancement(current_assault, 'devour', devour);
-					devour += enhanced;
-					devour = adjustAttackIncrease(current_assault, devour);
-
-					current_assault.attack_berserk += devour;
-
-					var healing = Math.min(devour, current_assault.health - current_assault.health_left);
-					if(healing) {
-						current_assault.health_left += healing;
-					}
-
-					if (simConfig.debug) {
-						echo += debug_name(current_assault) + ' activates devour, gaining ' + devour + ' attack';
-						if(healing) echo += ' and healing ' + healing + ' health';
-						echo += '<br>';
-					}
+				if (simConfig.debug) {
+					echo += debug_name(current_assault) + ' activates devour, gaining ' + devour + ' attack';
+					if(healing) echo += ' and healing ' + healing + ' health';
+					echo += '<br>';
 				}
 			}
 		}
@@ -5628,12 +5660,13 @@ var SIM_CONTROLLER = (function () {
 				}
 			}
 
+			// Enrage
 			var enraged = target.enraged;
 			if (enraged > 0) {
 				enraged = adjustAttackIncrease(target, enraged);
 				if (target.isAlive()) {
 					target.attack_berserk += enraged;
-					if (simConfig.debug) echo += debug_name(target) + " is enraged and gains " + enraged + " attack!</br>";
+					if (simConfig.debug) echo += debug_name(target) + " is enraged and gains " + enraged + " attack!<br>";
 				}
 			}
 			// Fury
@@ -5649,50 +5682,6 @@ var SIM_CONTROLLER = (function () {
 				}
 
 				doCounterDamage(current_assault, target, 'Fury', target.fury, 0, false);
-			}
-		}
-		
-		if (damage > 0 && !current_assault.silenced) {
-			if (current_assault.isAlive()) {
-				// Berserk
-				// - Must have done some damage to an assault unit
-				if (current_assault.berserk) {
-
-					var berserk = current_assault.berserk;
-					var enhanced = getEnhancement(current_assault, 'berserk', berserk);
-					berserk += enhanced;
-					berserk = adjustAttackIncrease(current_assault, berserk);
-
-					current_assault.attack_berserk += berserk;
-					if (simConfig.debug) echo += debug_name(current_assault) + ' activates berserk and gains ' + berserk + ' attack<br>';
-				}
-			}
-
-			// Swarm
-			// - Must have done some damage to an assault unit
-			if (current_assault.swarm) {
-				onAttackSkills.swarm(current_assault, target);
-			}
-		}
-
-		// -- CHECK STATUS INFLICTION --
-
-		// Corrosion
-		// - Target must have received some amount of damage
-		if (damage > 0 && target.corrosive && !target_was_silenced) {
-			var corrosion = target.corrosive || 0;
-			var enhanced = getEnhancement(target, 'corrosive', corrosion);
-			corrosion += enhanced;
-			if (current_assault.corroded) {
-				current_assault.corroded.amount += corrosion;
-				current_assault.corroded.timer = 2;
-			} else {
-				current_assault.corroded = { amount: corrosion, timer: 2 };
-			}
-			if (simConfig.debug) echo += debug_name(target) + ' inflicts corrosion(' + corrosion + ') on ' + debug_name(current_assault) + '<br>';
-			current_assault.attack_corroded = current_assault.corroded.amount;
-			if (simConfig.debug) {
-				echo += debug_name(current_assault) + ' loses ' + corrosion + ' attack to corrosion<br>';
 			}
 		}
 
