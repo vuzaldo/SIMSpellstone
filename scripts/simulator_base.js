@@ -1314,7 +1314,7 @@ var SIMULATOR = {};
 
 				if (damageDealt > 0) {
 					var healthMissing = sourceCard.health - sourceCard.health_left;
-					var healing = Math.min(sourceCard.vampirism, healthMissing);
+					var healing = Math.min(vampirism, healthMissing);
 					if (echo && healing) echo += debug_name(sourceCard) + ' recovers ' + healing + ' health from vampirism<br>';
 					sourceCard.health_left += healing;
 				}
