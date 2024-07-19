@@ -3066,6 +3066,9 @@ var SIM_CONTROLLER = (function () {
 
 				var additionalMaxHealth = 0;
 				if (invigorate) {
+
+					heal_amt = src_card.uid ? heal_amt : 1; // reproduce passive invigorate bug (no source card/commander)
+
 					// add invigorated if necessary
 					if (!target.invigorated) {
 						target.invigorated = 0;
