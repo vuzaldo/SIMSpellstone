@@ -12,7 +12,10 @@ var REVERSE_FUSIONS = {};
 for(var id in FUSIONS) {
 	var fusion = FUSIONS[id];
 	REVERSE_FUSIONS[fusion] = id;
-};"use strict";
+}
+
+BATTLEGROUNDS['501,502'] = { id: '501,502', name: 'Double Tower', isTower: true };
+;"use strict";
 
 if (typeof String.prototype.format !== 'function') {
     String.prototype.format = function() {

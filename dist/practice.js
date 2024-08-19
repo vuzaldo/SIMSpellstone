@@ -12,7 +12,10 @@ var REVERSE_FUSIONS = {};
 for(var id in FUSIONS) {
 	var fusion = FUSIONS[id];
 	REVERSE_FUSIONS[fusion] = id;
-};"use strict";
+}
+
+BATTLEGROUNDS['501,502'] = { id: '501,502', name: 'Double Tower', isTower: true };
+;"use strict";
 
 if (typeof String.prototype.format !== 'function') {
     String.prototype.format = function() {
@@ -3451,16 +3454,10 @@ var SIM_CONTROLLER = (function () {
 
 			var heartseeker = skill.x;
 
-			var target = getEnemyUnits(src_card, field)[src_card.key];
-
-			// No Targets
-			if (!target) return 0;
-
 			var enhanced = getEnhancement(src_card, skill.id, heartseeker);
 			heartseeker += enhanced;
 
-			target.heartseeker += heartseeker;
-			if (simConfig.debug) echo += debug_name(src_card) + ' inflicts heartseeker ' + heartseeker + ' on ' + debug_name(target) + '<br>';
+			src_card.hs = heartseeker;
 
 			return 1;
 		},
@@ -4487,6 +4484,22 @@ var SIM_CONTROLLER = (function () {
 						: chooseFirstCard);                         // If none of the other options are true, this is the standard PvE AI and it just picks the first card in hand
 	}
 
+	function play_tower(towerType, i) {
+		var towerBGE = BATTLEGROUNDS[towerType].effect;
+		var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
+		if (tower) {
+			tower = makeUnitInfo(tower.id, tower.level);
+			var towerCard = get_card_apply_battlegrounds(tower);
+			var uid = 150 + i;
+			towerCard.uid = uid;
+			field.uids[uid] = towerCard;
+			towerCard.isTower = function() { return true; };
+			play_card(towerCard, 'cpu', -1, true);
+			setPassiveStatus(towerCard, 'evade', 'invisible');
+			setPassiveStatus(towerCard, 'absorb', 'warded');
+		}
+	}
+
 	// Simulate one game
 	function simulate() {
 		simulating = true;
@@ -4512,18 +4525,9 @@ var SIM_CONTROLLER = (function () {
 		setupField(field);
 
 		if (simConfig.siegeMode) {
-			var towerBGE = BATTLEGROUNDS[simConfig.towerType].effect;
-			var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
-			if (tower) {
-				tower = makeUnitInfo(tower.id, tower.level);
-				var towerCard = get_card_apply_battlegrounds(tower);
-				var uid = 150;
-				towerCard.uid = uid;
-				field.uids[uid] = towerCard;
-				towerCard.isTower = function() { return true; };
-				play_card(towerCard, 'cpu', -1, true);
-				setPassiveStatus(towerCard, 'evade', 'invisible');
-				setPassiveStatus(towerCard, 'absorb', 'warded');
+			var towers = simConfig.towerType.split(',');
+			for (var i = 0; i < towers.length; i++) {
+				play_tower(towers[i], i);
 			}
 		}
 
@@ -5333,6 +5337,12 @@ var SIM_CONTROLLER = (function () {
 
 		// -- CALCULATE DAMAGE --
 		var damage = current_assault.adjustedAttack(); // Get base damage + rally/weaken
+
+		var heartseeker = current_assault.hs;
+		if (heartseeker && current_assault.hasAttack() && target.isAssault() && target.isAlive() && !current_assault.silenced) {
+			target.heartseeker += heartseeker;
+			if (simConfig.debug) echo += debug_name(current_assault) + ' inflicts heartseeker ' + heartseeker + ' on ' + debug_name(target) + '<br>';
+		}
 
 		// Bash
 		var bash = 0;
