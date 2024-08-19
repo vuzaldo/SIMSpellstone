@@ -13,3 +13,5 @@ for(var id in FUSIONS) {
 	var fusion = FUSIONS[id];
 	REVERSE_FUSIONS[fusion] = id;
 }
+
+BATTLEGROUNDS['501,502'] = { id: '501,502', name: 'Double Tower', isTower: true };

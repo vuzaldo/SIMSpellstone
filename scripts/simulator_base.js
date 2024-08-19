@@ -2095,6 +2095,22 @@ var SIMULATOR = {};
 						: chooseFirstCard);                         // If none of the other options are true, this is the standard PvE AI and it just picks the first card in hand
 	}
 
+	function play_tower(towerType, i) {
+		var towerBGE = BATTLEGROUNDS[towerType].effect;
+		var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
+		if (tower) {
+			tower = makeUnitInfo(tower.id, tower.level);
+			var towerCard = get_card_apply_battlegrounds(tower);
+			var uid = 150 + i;
+			towerCard.uid = uid;
+			field.uids[uid] = towerCard;
+			towerCard.isTower = function() { return true; };
+			play_card(towerCard, 'cpu', -1, true);
+			setPassiveStatus(towerCard, 'evade', 'invisible');
+			setPassiveStatus(towerCard, 'absorb', 'warded');
+		}
+	}
+
 	// Simulate one game
 	function simulate() {
 		simulating = true;
@@ -2120,18 +2136,9 @@ var SIMULATOR = {};
 		setupField(field);
 
 		if (simConfig.siegeMode) {
-			var towerBGE = BATTLEGROUNDS[simConfig.towerType].effect;
-			var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
-			if (tower) {
-				tower = makeUnitInfo(tower.id, tower.level);
-				var towerCard = get_card_apply_battlegrounds(tower);
-				var uid = 150;
-				towerCard.uid = uid;
-				field.uids[uid] = towerCard;
-				towerCard.isTower = function() { return true; };
-				play_card(towerCard, 'cpu', -1, true);
-				setPassiveStatus(towerCard, 'evade', 'invisible');
-				setPassiveStatus(towerCard, 'absorb', 'warded');
+			var towers = simConfig.towerType.split(',');
+			for (var i = 0; i < towers.length; i++) {
+				play_tower(towers[i], i);
 			}
 		}
 
