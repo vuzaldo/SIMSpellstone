@@ -1065,16 +1065,10 @@ var SIMULATOR = {};
 
 			var heartseeker = skill.x;
 
-			var target = getEnemyUnits(src_card, field)[src_card.key];
-
-			// No Targets
-			if (!target) return 0;
-
 			var enhanced = getEnhancement(src_card, skill.id, heartseeker);
 			heartseeker += enhanced;
 
-			target.heartseeker += heartseeker;
-			if (simConfig.debug) echo += debug_name(src_card) + ' inflicts heartseeker ' + heartseeker + ' on ' + debug_name(target) + '<br>';
+			src_card.hs = heartseeker;
 
 			return 1;
 		},
@@ -2947,6 +2941,12 @@ var SIMULATOR = {};
 
 		// -- CALCULATE DAMAGE --
 		var damage = current_assault.adjustedAttack(); // Get base damage + rally/weaken
+
+		var heartseeker = current_assault.hs;
+		if (heartseeker && current_assault.hasAttack() && target.isAssault() && target.isAlive() && !current_assault.silenced) {
+			target.heartseeker += heartseeker;
+			if (simConfig.debug) echo += debug_name(current_assault) + ' inflicts heartseeker ' + heartseeker + ' on ' + debug_name(target) + '<br>';
+		}
 
 		// Bash
 		var bash = 0;
