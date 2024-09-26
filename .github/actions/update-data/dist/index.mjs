@@ -8904,6 +8904,7 @@ async function getCampaignsJson() {
   };
   await getJsonFromSynapse('missions.xml', options);
   await getJsonFromSynapse('missions_event.xml', options);
+  await getJsonFromSynapse('missions_archive.xml', options);
   await getJsonFromSynapse('campaigns.xml', options);
 
   return {
@@ -9276,6 +9277,7 @@ async function getXmlChanges() {
       'market.xml',
       'missions.xml',
       'missions_event.xml',
+      'missions_archive.xml',
       'passive_missions.xml',
       'tutorial1.xml'
     ].map(getXmlFromSynapse)

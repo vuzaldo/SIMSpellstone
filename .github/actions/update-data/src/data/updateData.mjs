@@ -55,6 +55,7 @@ export async function getXmlChanges() {
       'market.xml',
       'missions.xml',
       'missions_event.xml',
+      'missions_archive.xml',
       'passive_missions.xml',
       'tutorial1.xml'
     ].map(getXmlFromSynapse)
