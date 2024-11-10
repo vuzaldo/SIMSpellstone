@@ -5379,7 +5379,7 @@ var SIM_CONTROLLER = (function () {
 
 		// Pierce
 		// var pierce = current_assault['skill']['pierce'];
-		var pierce = current_assault.pierce;
+		var pierce = current_assault.silenced ? 0 : current_assault.pierce;
 		if (pierce) {
 			var enhanced = getEnhancement(current_assault, 'pierce', pierce);
 			pierce += enhanced;
