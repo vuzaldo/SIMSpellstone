@@ -338,7 +338,7 @@ var makeUnit = (function() {
             } else if (skillModifier.modifierType === "scale_stat" && !isToken) {
                 for (var j = 0; j < skillModifier.effects.length; j++) {
                     var scaling = skillModifier.effects[j];
-                    if (new_card.isInFaction(scaling.y) && new_card.isTargetRarity(scaling.rarity && new_card.isTargetDelay(scaling.delay))) {
+                    if (new_card.isInFaction(scaling.y) && new_card.isTargetRarity(scaling.rarity) && new_card.isTargetDelay(scaling.delay)) {
                         var stat = getStatBeforeRunes(new_card, scaling.base);
                         var boost = Math.ceil(stat * scaling.mult);
                         boost = Math.min(boost, 99 - stat); // cap scaled stat at 99 (without considering runes)
