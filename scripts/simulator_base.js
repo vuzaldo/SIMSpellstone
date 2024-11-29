@@ -2339,7 +2339,10 @@ var SIMULATOR = {};
 			if (current_assault.valor && !current_assault.silenced) {
 				var enemy = field_o_assaults[i];
 				if (enemy && current_assault.adjustedAttack() < enemy.adjustedAttack() && enemy.hasAttack()) {
-					var valor = adjustAttackIncrease(current_assault, current_assault.valor);
+					var valor = current_assault.valor;
+					var enhanced = getEnhancement(current_assault, 'valor', valor);
+					valor += enhanced;
+					valor = adjustAttackIncrease(current_assault, valor);
 					current_assault.attack_valor += valor;
 					if (simConfig.debug) echo += debug_name(current_assault) + ' activates valor, boosting its attack by ' + valor + '<br/>';
 				} else if (simConfig.debug) {
