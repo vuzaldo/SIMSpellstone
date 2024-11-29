@@ -2684,7 +2684,7 @@ var SIM_CONTROLLER = (function () {
 		dying.ondeath_triggered = true;
 	}
 
-	var passiveSkills = ['backlash', 'counter', 'counterburn', 'counterpoison', 'armored', 'evade', 'stasis', 'regenerate', 'corrosive'];
+	var passiveSkills = ['backlash', 'counter', 'counterburn', 'counterpoison', 'armored', 'evade', 'stasis', 'regenerate', 'corrosive', 'absorb', 'valor', 'vampirism', 'fury', 'taunt'];
 	function requiresActiveTurn(skillName) {
 		return passiveSkills.indexOf(skillName) === -1;
 	}
@@ -4728,7 +4728,10 @@ var SIM_CONTROLLER = (function () {
 			if (current_assault.valor && !current_assault.silenced) {
 				var enemy = field_o_assaults[i];
 				if (enemy && current_assault.adjustedAttack() < enemy.adjustedAttack() && enemy.hasAttack()) {
-					var valor = adjustAttackIncrease(current_assault, current_assault.valor);
+					var valor = current_assault.valor;
+					var enhanced = getEnhancement(current_assault, 'valor', valor);
+					valor += enhanced;
+					valor = adjustAttackIncrease(current_assault, valor);
 					current_assault.attack_valor += valor;
 					if (simConfig.debug) echo += debug_name(current_assault) + ' activates valor, boosting its attack by ' + valor + '<br/>';
 				} else if (simConfig.debug) {
@@ -7716,7 +7719,7 @@ var CARD_GUI = {};
                 y: origSkill.y,
                 boosted: boost && !boost.used && (boost.all == origSkill.all) || bgeBoost
             };
-            boost && (boost.used = skill.boosted);
+            boost && !boost.used && (boost.used = skill.boosted);
             divSkills.appendChild(getSkillHtml(card, skill, onField, i));
             divSkills.appendChild(document.createElement('br'));
             skillsShort.appendChild(getSkillIcon(skill.id));

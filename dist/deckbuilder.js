@@ -2516,7 +2516,7 @@ var CARD_GUI = {};
                 y: origSkill.y,
                 boosted: boost && !boost.used && (boost.all == origSkill.all) || bgeBoost
             };
-            boost && (boost.used = skill.boosted);
+            boost && !boost.used && (boost.used = skill.boosted);
             divSkills.appendChild(getSkillHtml(card, skill, onField, i));
             divSkills.appendChild(document.createElement('br'));
             skillsShort.appendChild(getSkillIcon(skill.id));
