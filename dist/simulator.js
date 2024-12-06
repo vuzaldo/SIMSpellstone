@@ -7552,6 +7552,7 @@ var CARD_GUI = {};
         if (card.isCommander()) {
             htmlCard.classList.add("commander");
         }
+        card.type = Array.isArray(card.type) ? card.type.slice(-1)[0] : card.type; // temporary fix for comdev bug (Tusker dual faction)
         htmlCard.classList.add(factions.names[card.type].toLowerCase());
         var cardName = (card.uid !== undefined ? "(" + card.uid + ") " : "") + card.name;
         var divName = createDiv("card-name", cardName);
