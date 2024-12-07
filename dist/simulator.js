@@ -1344,7 +1344,7 @@ function base64_to_unitInfo(base64) {
     if (noFusionInHash[unitID]) {
         level += fusion * 7;
     } else if (fusion > 0) {
-        unitID = Number(fusion + '' + unitID);
+        unitID = Number(fusion * 10000 + unitID);
     }
 
     var unit_info = makeUnitInfo(unitID, level);

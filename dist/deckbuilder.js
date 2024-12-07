@@ -1344,7 +1344,7 @@ function base64_to_unitInfo(base64) {
     if (noFusionInHash[unitID]) {
         level += fusion * 7;
     } else if (fusion > 0) {
-        unitID = Number(fusion + '' + unitID);
+        unitID = Number(fusion * 10000 + unitID);
     }
 
     var unit_info = makeUnitInfo(unitID, level);
@@ -3186,6 +3186,10 @@ var drawCardList = function () {
 				if (id < 10000) {
 					addUnit(id);
 				}
+				else if (id > 20500 && id < 20600) {
+					// special quads without base card (e.g. Arcane Motherlode)
+					addUnitLevels(id);
+				}
 			}
 		}
 	}
@@ -3331,11 +3335,11 @@ var addInventoryUnit = function (unit) {
 var addUnit = function (id, spoilers) {
 	addUnitLevels(id);
 	if (spoilers) {
-		if (spoilers["1" + id]) addUnitLevels("1" + id);
-		if (spoilers["2" + id]) addUnitLevels("2" + id);
-	} else if (id > 999) {
-		addUnitLevels("1" + id);
-		addUnitLevels("2" + id);
+		if (spoilers[10000 + parseInt(id)]) addUnitLevels(10000 + parseInt(id));
+		if (spoilers[20000 + parseInt(id)]) addUnitLevels(20000 + parseInt(id));
+	} else {
+		addUnitLevels(10000 + parseInt(id));
+		addUnitLevels(20000 + parseInt(id));
 	}
 }
 
@@ -4500,7 +4504,7 @@ var showCardOptions = function (event, htmlCard) {
 		var baseID = card.id.toString();
 		if (baseID.length > 4) {
 			var fusion = parseInt(baseID[0]) + 1;
-			var baseID = baseID.substring(1);
+			var baseID = baseID % 10000;
 		}
 		if (FUSIONS[baseID]) {
 			fusionField.value = fusion;
@@ -4605,8 +4609,8 @@ var modifyCard = function (optionsDialog) {
 	if (fusion) {
 		fusion = (fusion - 1).toString();
 		var unitID = unit.id.toString();
-		if (unitID.length > 4) unitID = unitID.substring(1);
-		if (fusion >= 0) unitID = fusion + unitID;
+		if (unitID.length > 4) unitID = unitID % 10000;
+		if (fusion >= 0) unitID = (fusion * 10000) + parseInt(unitID);
 		unit.id = parseInt(unitID);
 	}
 	var card = getCardByID(unit);
