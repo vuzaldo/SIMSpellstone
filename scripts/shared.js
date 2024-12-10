@@ -657,6 +657,8 @@ var makeUnit = (function() {
 
         card.base_health = card.health;
 
+        card.tower_card = original_card.tower_card;
+
         for (var i in original_skills)
             if (original_skills[i].id == 'absorb')
                 card.base_absorb = original_skills[i].x;
