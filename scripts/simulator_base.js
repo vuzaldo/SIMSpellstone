@@ -2100,7 +2100,7 @@ var SIMULATOR = {};
 		var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
 		if (tower) {
 			tower = makeUnitInfo(tower.id, tower.level);
-			var towerCard = get_card_apply_battlegrounds(tower);
+			var towerCard = get_card_apply_battlegrounds(tower, null, true);
 			var uid = 150 + i;
 			towerCard.uid = uid;
 			field.uids[uid] = towerCard;
