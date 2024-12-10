@@ -674,6 +674,8 @@ var makeUnit = (function() {
 
         card.base_health = card.health;
 
+        card.tower_card = original_card.tower_card;
+
         for (var i in original_skills)
             if (original_skills[i].id == 'absorb')
                 card.base_absorb = original_skills[i].x;
@@ -4368,7 +4370,7 @@ var SIM_CONTROLLER = (function () {
 			var targets = [];
 			for (var key = 0, len = alliedUnits.length; key < len; key++) {
 				var target = alliedUnits[key];
-				if (target.isAlive() && target.isActive() && (!target.isTower() || target == attacker)) {
+				if (target.isAlive() && target.isActive() && (!target.tower_card || target == attacker)) {
 					var adjustedAttack = target.adjustedAttack();
 					if (weakest == null || adjustedAttack < weakest) {
 						targets = [target];
@@ -4489,7 +4491,7 @@ var SIM_CONTROLLER = (function () {
 		var tower = towerBGE.id ? towerBGE : towerBGE[simConfig.towerLevel];
 		if (tower) {
 			tower = makeUnitInfo(tower.id, tower.level);
-			var towerCard = get_card_apply_battlegrounds(tower);
+			var towerCard = get_card_apply_battlegrounds(tower, null, true);
 			var uid = 150 + i;
 			towerCard.uid = uid;
 			field.uids[uid] = towerCard;
