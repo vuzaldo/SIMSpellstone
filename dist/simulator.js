@@ -6521,9 +6521,9 @@ $(function () {
             OK: function () {
                 mapBGEDialog.dialog("close");
             },
-            Cancel: function () {
-                mapBGEDialog.dialog("close");
-            }
+            // Cancel: function () {
+            //     mapBGEDialog.dialog("close");
+            // }
         }
     });
 
