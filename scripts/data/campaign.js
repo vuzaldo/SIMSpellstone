@@ -105,6 +105,10 @@ var LOCATIONS = {
 		"id": "32",
 		"name": "Gladius Scriptorium"
 	},
+	"33": {
+		"id": "33",
+		"name": "Skyhaven Assault"
+	},
 	"34": {
 		"id": "34",
 		"name": "Conflux Convergence"
