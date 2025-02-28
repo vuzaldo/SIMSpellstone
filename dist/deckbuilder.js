@@ -1691,10 +1691,10 @@ function getPresetUnit(unitInfo, level, maxedAt) {
     var unitLevel = (unitInfo.level || 1);
 
     if (level >= maxedAt) {
-        unitLevel = CARDS[cardID].maxLevel;
         if (canFuse(cardID)) {
             cardID = fuseCard(cardID);
         }
+        unitLevel = CARDS[cardID].maxLevel;
     } else if (level > 1 && is_commander(cardID)) {
         var maxUpgrades = CARDS[cardID].maxLevel - 1;
         var upgradesPerLevel = maxUpgrades / (maxedAt - 1);
