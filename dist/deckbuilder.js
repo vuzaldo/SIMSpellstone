@@ -356,6 +356,7 @@ var makeUnit = (function() {
                 for (var j = 0; j < skillModifier.effects.length; j++) {
                     var scaling = skillModifier.effects[j];
                     if (new_card.isInFaction(scaling.y) && new_card.isTargetRarity(scaling.rarity) && new_card.isTargetDelay(scaling.delay)) {
+                        if (skillModifier.scaledStat == 'attack' && !getStatBeforeRunes(new_card, 'attack')) continue; // game bug - 0 attack never scales (even with base health)
                         var stat = getStatBeforeRunes(new_card, scaling.base);
                         var boost = Math.ceil(stat * scaling.mult);
                         boost = Math.min(boost, 99 - stat); // cap scaled stat at 99 (without considering runes)
@@ -714,6 +715,12 @@ var makeUnit = (function() {
                 if (b.modifierType === 'scale_attributes') return 1;
                 return 0;
             });
+            // Scale stats before scaling attributes
+            skillModifiers.sort(function(a, b) { // move to the start of the array
+                if (a.modifierType === 'scale_stat') return -1;
+                if (b.modifierType === 'scale_stat') return 1;
+                return 0;
+            });
 
             modifySkillsPostRune(card, original_skills, skillModifiers, isToken);
         }
@@ -752,7 +759,7 @@ var getSkillMult = function(skill, target, defaultBase) {
     var mult = skill.mult;
     if (mult) {
         var base = skill.base || defaultBase || 'health';
-        base = base == 'health' ? 'base_health': base;
+        base = base == 'health' ? 'base_health' : base;
         return Math.ceil(mult * target[base]);
     } else {
         return 0;
