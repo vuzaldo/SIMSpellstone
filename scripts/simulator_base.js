@@ -331,6 +331,9 @@ var SIMULATOR = {};
 
 			if (!src_card.hasAttack()) return 0; // game bug
 
+			var targets = getEnemyUnits(src_card, field).slice(src_card.key, src_card.key + 1);
+			if (!targets.length && !src_card.confused) return 0; // game bug (no opposing unit)
+
 			var scorch = skill.x;
 
 			if (!src_card.scorched) {
