@@ -339,6 +339,7 @@ var makeUnit = (function() {
                 for (var j = 0; j < skillModifier.effects.length; j++) {
                     var scaling = skillModifier.effects[j];
                     if (new_card.isInFaction(scaling.y) && new_card.isTargetRarity(scaling.rarity) && new_card.isTargetDelay(scaling.delay)) {
+                        if (skillModifier.scaledStat == 'attack' && !getStatBeforeRunes(new_card, 'attack')) continue; // game bug - 0 attack never scales (even with base health)
                         var stat = getStatBeforeRunes(new_card, scaling.base);
                         var boost = Math.ceil(stat * scaling.mult);
                         boost = Math.min(boost, 99 - stat); // cap scaled stat at 99 (without considering runes)
