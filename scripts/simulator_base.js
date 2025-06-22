@@ -328,6 +328,9 @@ var SIMULATOR = {};
 	var activationSkills = {
 
 		burnself: function burnself(src_card, skill) {
+
+			if (!src_card.hasAttack()) return 0; // game bug
+
 			var scorch = skill.x;
 
 			if (!src_card.scorched) {
