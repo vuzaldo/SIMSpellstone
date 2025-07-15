@@ -83602,13 +83602,210 @@ var CARDS = {
 		}
 	},
 	"4100": {
+		"attack": 12,
+		"card_type": "2",
+		"cost": 3,
+		"health": 45,
+		"hidden_until": "1752771600000",
+		"id": "4100",
+		"maxLevel": 10,
+		"name": "Rafael, Dawn Rescuer",
+		"picture": "Angel_Winged_Saviour_A",
+		"rarity": 4,
+		"set": "5000",
+		"shard_card": 1,
+		"skill": [
+			{
+				"id": "armored",
+				"x": 7
+			},
+			{
+				"id": "corrosive",
+				"x": 6
+			},
+			{
+				"all": "1",
+				"id": "protect",
+				"x": 4
+			}
+		],
+		"sub_type": [
+			"6"
+		],
+		"type": "3",
+		"upgrades": {
+			"2": {
+				"attack": 13,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 7
+					},
+					{
+						"id": "corrosive",
+						"x": 7
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 4
+					}
+				]
+			},
+			"3": {
+				"skill": [
+					{
+						"id": "armored",
+						"x": 8
+					},
+					{
+						"id": "corrosive",
+						"x": 7
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 5
+					}
+				]
+			},
+			"4": {
+				"health": 46,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 8
+					},
+					{
+						"id": "corrosive",
+						"x": 8
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 5
+					}
+				]
+			},
+			"5": {
+				"attack": 14,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 9
+					},
+					{
+						"id": "corrosive",
+						"x": 8
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 6
+					}
+				]
+			},
+			"6": {
+				"health": 47,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 9
+					},
+					{
+						"id": "corrosive",
+						"x": 9
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 6
+					}
+				]
+			},
+			"7": {
+				"attack": 15,
+				"health": 48,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 10
+					},
+					{
+						"id": "corrosive",
+						"x": 9
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 6
+					}
+				]
+			},
+			"8": {
+				"skill": [
+					{
+						"id": "armored",
+						"x": 10
+					},
+					{
+						"id": "corrosive",
+						"x": 10
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 7
+					}
+				]
+			},
+			"9": {
+				"health": 49,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 11
+					},
+					{
+						"id": "corrosive",
+						"x": 10
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 7
+					}
+				]
+			},
+			"10": {
+				"attack": 16,
+				"health": 50,
+				"skill": [
+					{
+						"id": "armored",
+						"x": 11
+					},
+					{
+						"id": "corrosive",
+						"x": 10
+					},
+					{
+						"all": "1",
+						"id": "protect",
+						"x": 8
+					}
+				]
+			}
+		}
+	},
+	"4101": {
 		"attack": 1,
 		"card_type": "2",
 		"cost": 1,
 		"desc": "Placeholder for next champion.",
 		"health": 1,
-		"hidden_until": "1752771600000",
-		"id": "4100",
+		"hidden_until": "1755190800000",
+		"id": "4101",
 		"maxLevel": 10,
 		"name": "Placeholder Champion",
 		"picture": "Dust_Mite",
@@ -83617,7 +83814,7 @@ var CARDS = {
 		"shard_card": 1,
 		"skill": [],
 		"sub_type": [
-			"6"
+			"14"
 		],
 		"type": "0",
 		"upgrades": {

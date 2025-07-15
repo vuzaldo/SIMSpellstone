@@ -1972,6 +1972,17 @@
       <evolve_skill id="flurry" s="confuse" />
     </effect>
   </battleground>
+  <battleground>
+    <id>195</id>
+    <name>Heaven&apos;s Unbreakable Ice</name>
+    <desc>All Angels gain Frostbreath equal to 50% of their base Attack, along with 10% Corrosive and 15% Barrier scaling with base Health.</desc>
+    <icon>filter_angel_64</icon>
+    <effect>
+      <add_skill id="frost" mult="0.5" base="attack" y="6" />
+      <add_skill id="corrosive" mult="0.1" base="health" y="6" />
+      <skill id="protect" ignore_nullify="1" mult="0.15" x="0" base="health" all="1" y="6" />
+    </effect>
+  </battleground>
   <!-- ================================= -->
   <!-- ==== 501-1000: Specialty BGE ==== -->
   <!-- ================================= -->
