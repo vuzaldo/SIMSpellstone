@@ -3646,6 +3646,25 @@ var BATTLEGROUNDS = {
 		"id": "195",
 		"name": "Heaven's Unbreakable Ice"
 	},
+	"196": {
+		"desc": "All Beasts gain Invisibility 2 and extra Health equal to 20% of their base Health.",
+		"effect": [
+			{
+				"effect_type": "add_skill",
+				"id": "evade",
+				"x": 2,
+				"y": "14"
+			},
+			{
+				"base": "health",
+				"effect_type": "scale_health",
+				"mult": 0.2,
+				"y": "14"
+			}
+		],
+		"id": "196",
+		"name": "Hidden Beasts"
+	},
 	"501": {
 		"desc": "All enemies start with a Castle Tower card.",
 		"effect": {

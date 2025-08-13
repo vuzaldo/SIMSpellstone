@@ -11850,282 +11850,8 @@
     </reward>
   </achievement>
   <!-- Campaign Event 22 weeks 1-4 -->
-  <achievement>
-    <id>3561</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Healed Dawnglow' campaign on Mastery Level 1.</desc>
-    <mission_req>6389</mission_req>
-    <locked_start_time>1585846800</locked_start_time>
-    <!--  Thursday, 2 April 2020 17:00:00 -->
-    <req>
-      <campaign>1239</campaign>
-      <level>1</level>
-    </req>
-    <reward>
-      <item id="3110" number="50" />
-      <!-- Expediton Item -->
-      <event_points id="7058" number="50" />
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3562</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Healed Dawnglow' campaign on Mastery Level 2.</desc>
-    <locked_start_time>1585846800</locked_start_time>
-    <!--  Thursday, 2 April 2020 17:00:00 -->
-    <achievement_req>3546</achievement_req>
-    <req>
-      <campaign>1239</campaign>
-      <level>2</level>
-    </req>
-    <reward>
-      <gold>800</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3563</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Healed Dawnglow' campaign on Mastery Level 4.</desc>
-    <locked_start_time>1585846800</locked_start_time>
-    <!--  Thursday, 2 April 2020 17:00:00 -->
-    <achievement_req>3547</achievement_req>
-    <req>
-      <campaign>1239</campaign>
-      <level>4</level>
-    </req>
-    <reward>
-      <gold>1000</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3564</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Healed Dawnglow' campaign on Mastery Level 6.</desc>
-    <locked_start_time>1585846800</locked_start_time>
-    <!--  Thursday, 2 April 2020 17:00:00 -->
-    <achievement_req>3548</achievement_req>
-    <req>
-      <campaign>1239</campaign>
-      <level>6</level>
-    </req>
-    <reward>
-      <gold>1200</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3565</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Mechanical Titan' campaign on Mastery Level 2.</desc>
-    <mission_req>6395</mission_req>
-    <locked_start_time>1587056400</locked_start_time>
-    <!--  Thursday, 16 April 2020 17:00:00 -->
-    <req>
-      <campaign>1240</campaign>
-      <level>2</level>
-    </req>
-    <reward>
-      <gold>800</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3566</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Mechanical Titan' campaign on Mastery Level 4.</desc>
-    <locked_start_time>1587056400</locked_start_time>
-    <!--  Thursday, 16 April 2020 17:00:00 -->
-    <achievement_req>3550</achievement_req>
-    <req>
-      <campaign>1240</campaign>
-      <level>4</level>
-    </req>
-    <reward>
-      <gold>1000</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3567</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Mechanical Titan' campaign on Mastery Level 6.</desc>
-    <locked_start_time>1587056400</locked_start_time>
-    <!--  Thursday, 16 April 2020 17:00:00 -->
-    <achievement_req>3551</achievement_req>
-    <req>
-      <campaign>1240</campaign>
-      <level>6</level>
-    </req>
-    <reward>
-      <gold>1200</gold>
-    </reward>
-  </achievement>
   <!-- Conjured Dragon's recipe -->
-  <achievement>
-    <id>3568</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Empty Titan' campaign on Mastery Level 1.</desc>
-    <mission_req>6414</mission_req>
-    <locked_start_time>1587056400</locked_start_time>
-    <!--  Thursday, 16 April 2020 17:00:00 -->
-    <req>
-      <campaign>1247</campaign>
-      <level>1</level>
-    </req>
-    <reward>
-      <item id="8023" number="1" />
-    </reward>
-  </achievement>
   <!-- Campaign Event 22 weeks 5-8 -->
-  <achievement>
-    <id>3569</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Manufactured Freedom' campaign on Mastery Level 1.</desc>
-    <mission_req>6423</mission_req>
-    <locked_start_time>1588266000</locked_start_time>
-    <!--  Thursday, 30 April 2020 17:00:00 -->
-    <req>
-      <campaign>1248</campaign>
-      <level>1</level>
-    </req>
-    <reward>
-      <item id="3110" number="50" />
-      <!-- Expediton Item -->
-      <event_points id="7058" number="50" />
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3570</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Manufactured Freedom' campaign on Mastery Level 2.</desc>
-    <locked_start_time>1588266000</locked_start_time>
-    <!--  Thursday, 30 April 2020 17:00:00 -->
-    <achievement_req>3569</achievement_req>
-    <req>
-      <campaign>1248</campaign>
-      <level>2</level>
-    </req>
-    <reward>
-      <gold>800</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3571</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Manufactured Freedom' campaign on Mastery Level 4.</desc>
-    <locked_start_time>1588266000</locked_start_time>
-    <!--  Thursday, 30 April 2020 17:00:00 -->
-    <achievement_req>3570</achievement_req>
-    <req>
-      <campaign>1248</campaign>
-      <level>4</level>
-    </req>
-    <reward>
-      <gold>1000</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3572</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Manufactured Freedom' campaign on Mastery Level 6.</desc>
-    <locked_start_time>1588266000</locked_start_time>
-    <!--  Thursday, 30 April 2020 17:00:00 -->
-    <achievement_req>3571</achievement_req>
-    <req>
-      <campaign>1248</campaign>
-      <level>6</level>
-    </req>
-    <reward>
-      <gold>1200</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3573</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Royal Interruption' campaign on Mastery Level 2.</desc>
-    <mission_req>6429</mission_req>
-    <locked_start_time>1589475600</locked_start_time>
-    <!--  Thursday, 14 May 2020 17:00:00 -->
-    <req>
-      <campaign>1249</campaign>
-      <level>2</level>
-    </req>
-    <reward>
-      <gold>800</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3574</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Royal Interruption' campaign on Mastery Level 4.</desc>
-    <locked_start_time>1589475600</locked_start_time>
-    <!--  Thursday, 14 May 2020 17:00:00 -->
-    <achievement_req>3573</achievement_req>
-    <req>
-      <campaign>1249</campaign>
-      <level>4</level>
-    </req>
-    <reward>
-      <gold>1000</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3575</id>
-    <type>2</type>
-    <order>601</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Royal Interruption' campaign on Mastery Level 6.</desc>
-    <locked_start_time>1589475600</locked_start_time>
-    <!--  Thursday, 14 May 2020 17:00:00 -->
-    <achievement_req>3574</achievement_req>
-    <req>
-      <campaign>1249</campaign>
-      <level>6</level>
-    </req>
-    <reward>
-      <gold>1200</gold>
-    </reward>
-  </achievement>
   <!-- Campaign Event 23 weeks 1-4 -->
   <!-- Bloodmist Harpy's recipe -->
   <!-- Campaign Event 23 weeks 5-8 -->
@@ -13352,154 +13078,7 @@
   </achievement>
   <!-- Halloween Fireshard Mine 2021 -->
   <!-- Wizard Event 84 - Frogs - Node 1 -->
-  <achievement>
-    <id>3744</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Frog Society' campaign on Mastery Level 1.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <mission_req>6741</mission_req>
-    <locked_start_time>1639069200</locked_start_time>
-    <!-- Thursday, December 9, 2021 at 17:00:00 -->
-    <req>
-      <campaign>1304</campaign>
-      <level>1</level>
-    </req>
-    <reward>
-      <item id="3110" number="50" />
-      <!-- Expediton Item -->
-      <event_points id="7080" number="50" />
-      <!-- Expediton ID -->
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3745</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Frog Society' campaign on Mastery Level 2.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <locked_start_time>1639069200</locked_start_time>
-    <!-- Thursday, December 9, 2021 at 17:00:00 -->
-    <achievement_req>3744</achievement_req>
-    <req>
-      <campaign>1304</campaign>
-      <level>2</level>
-    </req>
-    <reward>
-      <gold>3000</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3746</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Frog Society' campaign on Mastery Level 4.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <locked_start_time>1639069200</locked_start_time>
-    <!-- Thursday, December 9, 2021 at 17:00:00 -->
-    <achievement_req>3745</achievement_req>
-    <req>
-      <campaign>1304</campaign>
-      <level>4</level>
-    </req>
-    <reward>
-      <sp>60</sp>
-      <!-- Dust  -->
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3747</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Frog Society' campaign on Mastery Level 6.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <locked_start_time>1639069200</locked_start_time>
-    <!-- Thursday, December 9, 2021 at 17:00:00 -->
-    <achievement_req>3746</achievement_req>
-    <req>
-      <campaign>1304</campaign>
-      <level>6</level>
-    </req>
-    <reward>
-      <sp>60</sp>
-      <!-- Dust  -->
-    </reward>
-  </achievement>
   <!-- Wizard Event 84 - Frogs - Node 2 -->
-  <achievement>
-    <id>3748</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Froggsters' campaign on Mastery Level 2.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <mission_req>6747</mission_req>
-    <locked_start_time>1640278800</locked_start_time>
-    <!--  Thursday, December 23, 2021 17:00:00 -->
-    <req>
-      <campaign>1305</campaign>
-      <level>2</level>
-    </req>
-    <reward>
-      <gold>3000</gold>
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3749</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Froggsters' campaign on Mastery Level 4.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <locked_start_time>1640278800</locked_start_time>
-    <!-- Thursday, December 23, 2021 17:00:00 -->
-    <achievement_req>3748</achievement_req>
-    <req>
-      <campaign>1305</campaign>
-      <level>4</level>
-    </req>
-    <reward>
-      <sp>60</sp>
-      <!-- Dust  -->
-    </reward>
-  </achievement>
-  <achievement>
-    <id>3750</id>
-    <type>2</type>
-    <order>602</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the 'Froggsters' campaign on Mastery Level 6.</desc>
-    <icon>node_gem_yellow</icon>
-    <icon_bundle>15</icon_bundle>
-    <locked_start_time>1640278800</locked_start_time>
-    <!-- Thursday, December 23, 2021 17:00:00 -->
-    <achievement_req>3749</achievement_req>
-    <req>
-      <campaign>1305</campaign>
-      <level>6</level>
-    </req>
-    <reward>
-      <sp>60</sp>
-      <!-- Dust  -->
-    </reward>
-  </achievement>
   <!-- Christmas 2021 Achievements -->
   <!-- Wizard Event 85 - Goblins - Node 1 -->
   <achievement>
@@ -16887,33 +16466,6 @@
     </reward>
   </achievement>
   <achievement>
-    <!-- Healed Dawnglow -->
-    <id>4023</id>
-    <type>2</type>
-    <order>652</order>
-    <event_only>1</event_only>
-    <name>Vanquisher of Healed Dawnglow</name>
-    <desc>Complete Mastery Level 7 on all basic campaigns and the boss in Healed Dawnglow.</desc>
-    <icon>mapNavGlobe</icon>
-    <mission_req>6384</mission_req>
-    <req>
-      <campaign>1239</campaign>
-      <!-- 1st node -->
-      <campaign>1240</campaign>
-      <!-- 2nd node -->
-      <campaign>1247</campaign>
-      <!-- Boss node -->
-      <campaign>1248</campaign>
-      <!-- 3rd node -->
-      <campaign>1249</campaign>
-      <!-- 4th node -->
-      <level>7</level>
-    </req>
-    <reward>
-      <item id="2531" number="1" />
-    </reward>
-  </achievement>
-  <achievement>
     <!-- Tarragon Peak Revisited -->
     <id>4030</id>
     <type>2</type>
@@ -17113,31 +16665,6 @@
       <campaign>1148</campaign>
       <campaign>1301</campaign>
       <campaign>1302</campaign>
-      <level>7</level>
-    </req>
-    <reward>
-      <item id="2531" number="1" />
-    </reward>
-  </achievement>
-  <achievement>
-    <!-- Healed Dawnglow Revisited -->
-    <id>4038</id>
-    <type>2</type>
-    <order>659</order>
-    <event_only>1</event_only>
-    <name>Champion of Healed Dawnglow</name>
-    <desc>Complete Mastery Level 7 on all gold campaigns in Healed Dawnglow.</desc>
-    <icon>mapNavGlobe</icon>
-    <mission_req>6736</mission_req>
-    <achievement_req>4023</achievement_req>
-    <req>
-      <campaign>1239</campaign>
-      <campaign>1240</campaign>
-      <campaign>1247</campaign>
-      <campaign>1248</campaign>
-      <campaign>1249</campaign>
-      <campaign>1304</campaign>
-      <campaign>1305</campaign>
       <level>7</level>
     </req>
     <reward>
@@ -18114,45 +17641,7 @@
   <!-- Event 127: ComDev Undead - Return to Tarragon Peak -->
   <!-- Event 128: ComDev Elemental - Return to Karthos -->
   <!-- Event 129: ComDev Frog - Return to Luminis -->
-  <achievement>
-    <id>10129</id>
-    <type>2</type>
-    <order>604</order>
-    <event_only>1</event_only>
-    <name>Return to Luminis</name>
-    <desc>Complete the Alyel Back in Time campaign on Mastery Level 7.</desc>
-    <icon>energy_refill</icon>
-    <icon_bundle>30</icon_bundle>
-    <mission_req>10129</mission_req>
-    <req>
-      <campaign>10129</campaign>
-      <level>7</level>
-    </req>
-    <reward>
-      <wb>120</wb>
-      <!-- Shards -->
-    </reward>
-  </achievement>
   <!-- Event 130: ComDev Insect - Healed Dawnglow -->
-  <achievement>
-    <id>10130</id>
-    <type>2</type>
-    <order>604</order>
-    <event_only>1</event_only>
-    <name>Healed Dawnglow</name>
-    <desc>Complete the Alyel Back in Time campaign on Mastery Level 7.</desc>
-    <icon>energy_refill</icon>
-    <icon_bundle>30</icon_bundle>
-    <mission_req>10130</mission_req>
-    <req>
-      <campaign>10130</campaign>
-      <level>7</level>
-    </req>
-    <reward>
-      <wb>120</wb>
-      <!-- Shards -->
-    </reward>
-  </achievement>
   <!-- Event 131: ComDev Angel - Return to Elaria -->
   <achievement>
     <id>10131</id>
@@ -18170,6 +17659,26 @@
     </req>
     <reward>
       <wb>240</wb>
+      <!-- Shards -->
+    </reward>
+  </achievement>
+  <!-- Event 132: ComDev Beast - World's Center -->
+  <achievement>
+    <id>10132</id>
+    <type>2</type>
+    <order>604</order>
+    <event_only>1</event_only>
+    <name>World's Center</name>
+    <desc>Complete the Alyel Back in Time campaign on Mastery Level 7.</desc>
+    <icon>energy_refill</icon>
+    <icon_bundle>30</icon_bundle>
+    <mission_req>10132</mission_req>
+    <req>
+      <campaign>10132</campaign>
+      <level>7</level>
+    </req>
+    <reward>
+      <wb>120</wb>
       <!-- Shards -->
     </reward>
   </achievement>
