@@ -328,7 +328,7 @@ var makeUnit = (function() {
                         new_card.attack += plusAttack;
                         new_card.attack = Math.min(new_card.attack, 99);
                         new_card.highlighted.push('attack');
-                        var plusHealth = Math.ceil(new_card.health * mult);
+                        var plusHealth = Math.ceil(getStatBeforeRunes(new_card, 'health') * mult);
                         new_card.health += plusHealth;
                         new_card.health = Math.min(new_card.health, 99);
                         new_card.highlighted.push('health');
