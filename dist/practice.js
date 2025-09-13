@@ -5045,6 +5045,12 @@ var SIM_CONTROLLER = (function () {
 					continue;
 				}
 
+				// Check freeze (jamself)
+				if (current_assault.jammed) {
+					if (simConfig.debug) echo += debug_name(current_assault) + ' is frozen and cannot attack<br>';
+					break;
+				}
+
 				var opposingUnit;
 				if (current_assault.confused) {
 					var adjacentAllies = [
@@ -5198,12 +5204,8 @@ var SIM_CONTROLLER = (function () {
 				continue;
 			}
 
-			// Make sure jam-self doesn't wear off at end of turn it was applied
-			if (current_assault.jammedSelf) {
-				current_assault.jammedSelf = false;
-			} else {
-				current_assault.jammed = false;
-			}
+			current_assault.jammedSelf = false;
+			current_assault.jammed = false;
 			current_assault.confused = false;
 			current_assault.attack_rally = 0;
 			current_assault.attack_weaken = 0;
