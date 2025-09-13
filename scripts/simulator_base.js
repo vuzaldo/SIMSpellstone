@@ -2647,6 +2647,12 @@ var SIMULATOR = {};
 					continue;
 				}
 
+				// Check freeze (jamself)
+				if (current_assault.jammed) {
+					if (simConfig.debug) echo += debug_name(current_assault) + ' is frozen and cannot attack<br>';
+					break;
+				}
+
 				var opposingUnit;
 				if (current_assault.confused) {
 					var adjacentAllies = [
