@@ -2800,12 +2800,8 @@ var SIMULATOR = {};
 				continue;
 			}
 
-			// Make sure jam-self doesn't wear off at end of turn it was applied
-			if (current_assault.jammedSelf) {
-				current_assault.jammedSelf = false;
-			} else {
-				current_assault.jammed = false;
-			}
+			current_assault.jammedSelf = false;
+			current_assault.jammed = false;
 			current_assault.confused = false;
 			current_assault.attack_rally = 0;
 			current_assault.attack_weaken = 0;
