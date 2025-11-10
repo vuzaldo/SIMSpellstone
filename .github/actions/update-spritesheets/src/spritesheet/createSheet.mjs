@@ -49,10 +49,9 @@ async function createSheet(imageFileNames, spritePath, cssFilePath, spriteLookup
         if (images % dimensions > 0) height++;
         if (height > dimensions) height = dimensions;
         const sheetName = `${sheetType}${sheetIndex}.jpg`;
-        const backgroundImage = `background-image: url('../dist/sprites/${sheetName}');`;
         const spriteSheet = new Jimp(84 * dimensions, width * height, 0x0);
-
         const end = Math.min(dimensions * dimensions, images - offset);
+        const backgroundImage = `background-image: url('../dist/sprites/${sheetName}?v=${end}');`;
         let i = 0;
         for (; i < end; i++) {
             let fileName = imageFileNames[i + offset];
