@@ -177,7 +177,11 @@ function copy_deck(original_deck) {
 
 function getDeckCards(original_deck, owner) {
     var new_deck = {};
-    new_deck.commander = getCardByID(original_deck.commander);
+    var battlegrounds_commander = SIMULATOR.battlegrounds.onCreate.filter(function(bge) {
+        // evolve_skill affects the commanders
+        return bge.evolve_skill && !((owner === 'player' && bge.enemy_only) || (owner === 'cpu' && bge.ally_only));
+    });
+    new_deck.commander = getCardByID(original_deck.commander, battlegrounds_commander);
     new_deck.deck = [];
     var list = original_deck.deck;
     var battlegrounds = SIMULATOR.battlegrounds.onCreate.filter(function(bge) {
@@ -1044,6 +1048,7 @@ function addRaidBGE(battlegrounds, raidID, raidLevel) {
                 } else if (["evolve_skill", "add_skill", "scale_attributes", "statChange", "runeMultiplier"].indexOf(effect_Type) >= 0) {
                     var bge = MakeSkillModifier(battleground.name, effect);
                     bge.enemy_only = enemy_only;
+                    if (effect_type === 'evolve_skill') bge.evolve_skill = true;
                     battlegrounds.onCreate.push(bge);
                 } else if (["scale_attack", "scale_health"].indexOf(effect_Type) >= 0) {
                     var bge = MakeStatScalar(battleground.name, effect);
@@ -1089,6 +1094,7 @@ function addBgeFromList(battlegrounds, battleground, player) {
             var bge = MakeSkillModifier(battleground.name, effect);
             if (player === 'player') bge.ally_only = true;
             if (player === 'cpu') bge.enemy_only = true;
+            if (effect_type === 'evolve_skill') bge.evolve_skill = true;
             battlegrounds.onCreate.push(bge);
         } else if (["scale_attack", "scale_health"].indexOf(effect_type) >= 0) {
             var bge = MakeStatScalar(battleground.name, effect);
@@ -7309,7 +7315,8 @@ var CARD_GUI = {};
 
     function makeDeckHTML(deck, noblanks, battlegrounds) {
         var cards = [];
-        var commander = getCardByID(deck.commander);
+        var battlegrounds_commander = battlegrounds ? battlegrounds.filter(function(bge) { return bge.evolve_skill; }) : battlegrounds;
+        var commander = getCardByID(deck.commander, battlegrounds_commander);
         cards.push(create_card_html(commander, false, false));
         for (var i = 0, len = deck.deck.length; i < len; i++) {
             var deckEntry = deck.deck[i];
