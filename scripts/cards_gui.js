@@ -21,7 +21,8 @@ var CARD_GUI = {};
 
     function makeDeckHTML(deck, noblanks, battlegrounds) {
         var cards = [];
-        var commander = getCardByID(deck.commander);
+        var battlegrounds_commander = battlegrounds ? battlegrounds.filter(function(bge) { return bge.evolve_skill; }) : battlegrounds;
+        var commander = getCardByID(deck.commander, battlegrounds_commander);
         cards.push(create_card_html(commander, false, false));
         for (var i = 0, len = deck.deck.length; i < len; i++) {
             var deckEntry = deck.deck[i];
