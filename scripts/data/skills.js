@@ -116,7 +116,7 @@ var SKILL_DATA = {
 	"devour": {
 		"desc": "After dealing Attack damage, permanently increases Attack and heals self.",
 		"icon": "devour",
-		"name": "devour",
+		"name": "Devour",
 		"order": 285,
 		"type": "onAttack"
 	},
@@ -142,7 +142,7 @@ var SKILL_DATA = {
 		"type": "earlyActivation"
 	},
 	"enlarge": {
-		"desc": "Permanently increases the Attack of a creature when played, while this creature is active",
+		"desc": "Permanently increases the Attack of a creature when played, while this creature is active.",
 		"icon": "empower",
 		"name": "Enlarge",
 		"order": 500,
@@ -163,7 +163,7 @@ var SKILL_DATA = {
 		"type": "turnStart"
 	},
 	"evadebarrier": {
-		"desc": "Grants Barrier and half as much Invisibility to self and leftmost ally creature.",
+		"desc": "Grants Barrier and Invisibility to a random ally creature.",
 		"icon": "mystic_barrier",
 		"name": "Mystic Barrier",
 		"order": 1,
@@ -242,7 +242,7 @@ var SKILL_DATA = {
 	"invigorate": {
 		"desc": "Heals a random ally creature and grants Invigorate, permanently increasing max health. Invigorate does not stack.",
 		"icon": "invigorate",
-		"name": "invigorate",
+		"name": "Invigorate",
 		"order": 125,
 		"type": "activation"
 	},
@@ -275,17 +275,17 @@ var SKILL_DATA = {
 		"type": "earlyActivation"
 	},
 	"magicfield": {
-		"desc": "This card is immune to debuffs. Opposing card is immune to any positve effects.",
+		"desc": "This creature is immune to debuffs. Opposing creature is immune to any positive effects.",
 		"icon": "antimagicfield",
 		"name": "Anti-Magic Field",
 		"order": 1,
 		"type": "activation"
 	},
 	"mark": {
-		"desc": "Marks a random target upon first activation, Hexing them for 30% of their base Attack. The creature chooses a new mark when their current mark dies. Ignores Invisibility.",
+		"desc": "Marks a random target with Hex upon first activation. Chooses a new mark when the current mark dies. Ignores Invisibility.",
 		"icon": "eagle_eye",
 		"name": "Mark",
-		"order": 500,
+		"order": 155,
 		"type": "earlyActivation"
 	},
 	"nullify": {
@@ -310,7 +310,7 @@ var SKILL_DATA = {
 		"type": "onAttack"
 	},
 	"poisonstrike": {
-		"desc": "Deals bolt damage to a random enemy creature and leaves poison.",
+		"desc": "Deals bolt damage to a random enemy creature and leaves Poison.",
 		"icon": "poison_bolt",
 		"name": "Poisonbolt",
 		"order": 500,
@@ -324,7 +324,7 @@ var SKILL_DATA = {
 		"type": "activation"
 	},
 	"protect_ice": {
-		"desc": "Reduces the next damage dealt to a random allied creature",
+		"desc": "Reduces the next damage dealt to a random allied creature.",
 		"icon": "iceshatter",
 		"name": "Iceshatter Barrier",
 		"order": 500,
@@ -339,7 +339,7 @@ var SKILL_DATA = {
 	"radiance": {
 		"desc": "At start of turn, grant adjacent allies Legion and half as much Barrier.",
 		"icon": "radiance",
-		"name": "radiance",
+		"name": "Radiance",
 		"order": 145,
 		"type": "earlyActivation"
 	},
@@ -365,7 +365,7 @@ var SKILL_DATA = {
 		"type": "turnEnd"
 	},
 	"reinforce": {
-		"desc": "When this creature deals Attack damage they gain a Barrier",
+		"desc": "When this creature deals Attack damage, they gain Barrier.",
 		"icon": "reinforce",
 		"name": "Energy Shield",
 		"order": 90,
@@ -373,7 +373,7 @@ var SKILL_DATA = {
 	},
 	"resurrect": {
 		"desc": "Resurrects creatures when they die.",
-		"icon": "frostbreath",
+		"icon": "reanimate",
 		"name": "Resurrect",
 		"order": 505,
 		"type": "activation"
@@ -414,7 +414,7 @@ var SKILL_DATA = {
 		"type": "activation"
 	},
 	"swarm": {
-		"desc": "After dealing Attack damage, permanently increases Attack of the lowest Attack active ally creature.",
+		"desc": "After dealing Attack damage, permanently increases the Attack of the lowest Attack active ally creature.",
 		"icon": "infect",
 		"name": "Swarm",
 		"order": 1,
@@ -428,7 +428,7 @@ var SKILL_DATA = {
 		"type": "toggle"
 	},
 	"unearth": {
-		"desc": "When a non token creature dies, it spawns a Token creature with stats based on its own stats",
+		"desc": "When a non token creature dies, it spawns a Token creature with stats based on its own stats.",
 		"icon": "reanimate",
 		"name": "Unearth",
 		"order": 500,
@@ -470,7 +470,7 @@ var SKILL_DATA = {
 		"type": "activation"
 	},
 	"weakenself": {
-		"desc": "Reduces Attack of a random allied creature",
+		"desc": "Reduces Attack of a random allied creature.",
 		"icon": "hinder",
 		"name": "Weaken Ally",
 		"order": 500,
