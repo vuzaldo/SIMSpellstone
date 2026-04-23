@@ -164,9 +164,9 @@ var SKILL_DATA = {
 	},
 	"evadebarrier": {
 		"desc": "Grants Barrier and Invisibility to a random ally creature.",
-		"icon": "mystic_barrier",
+		"icon": "antimagicfield",
 		"name": "Mystic Barrier",
-		"order": 1,
+		"order": 115,
 		"type": "activation"
 	},
 	"fervor": {
@@ -313,7 +313,7 @@ var SKILL_DATA = {
 		"desc": "Deals bolt damage to a random enemy creature and leaves Poison.",
 		"icon": "poison_bolt",
 		"name": "Poisonbolt",
-		"order": 500,
+		"order": 215,
 		"type": "activation"
 	},
 	"protect": {
@@ -417,7 +417,7 @@ var SKILL_DATA = {
 		"desc": "After dealing Attack damage, permanently increases the Attack of the lowest Attack active ally creature.",
 		"icon": "infect",
 		"name": "Swarm",
-		"order": 1,
+		"order": 285,
 		"type": "onAttack"
 	},
 	"taunt": {
