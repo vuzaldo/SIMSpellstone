@@ -166,7 +166,7 @@ var SKILL_DATA = {
 		"desc": "Grants Barrier and Invisibility to a random ally creature.",
 		"icon": "antimagicfield",
 		"name": "Mystic Barrier",
-		"order": 1,
+		"order": 115,
 		"type": "activation"
 	},
 	"fervor": {
