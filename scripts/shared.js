@@ -309,7 +309,7 @@ var makeUnit = (function() {
                         for (var key in original_skills) {
                             var skill = original_skills[key];
                             // if (skill.id === new_skill.id && skill.all == new_skill.all) {
-                            if (skill.id === new_skill.id) { // replicating the same bug in the game (lack of condition for single/all target)
+                            if (skill.id === new_skill.id && skill.y === new_skill.y) { // replicating the same bug in the game (and avoid mixing with restricted skill)
                                 skill = copy_skill(skill);
                                 skill.x += new_skill.x;
                                 original_skills[key] = skill;
