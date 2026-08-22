@@ -4399,6 +4399,7 @@ var showAdvancedFilters = function (skill) {
 		case 'ignite':
 		case 'leech':
 		case 'magicfield':
+		case 'mark':
 		case 'nullify':
 		case 'pierce':
 		case 'poison':
@@ -5601,7 +5602,7 @@ if (function (type) {
       'jam',
       'leech',
       'legion',
-      //'mark',
+      'mark',
       //'magicfield',
       'nullify',
       'pierce',
@@ -5625,7 +5626,7 @@ if (function (type) {
       'vampirism',
       'venom',
       'weaken',
-      'weakenself',
+      //'weakenself',
       //'wingward'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);

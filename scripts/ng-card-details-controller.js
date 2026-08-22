@@ -309,7 +309,7 @@
       'jam',
       'leech',
       'legion',
-      //'mark',
+      'mark',
       //'magicfield',
       'nullify',
       'pierce',
@@ -333,7 +333,7 @@
       'vampirism',
       'venom',
       'weaken',
-      'weakenself',
+      //'weakenself',
       //'wingward'
     ].sort(function (idA, idB) {
       return SKILL_DATA[idA].name.localeCompare(SKILL_DATA[idB].name);

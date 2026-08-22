@@ -9154,7 +9154,7 @@ var skillRenames = {
 };
 var iconRemappings = {
   'reinforce': 'reinforce',
-  'mark': 'eagle_eye',
+  //'mark': 'eagle_eye',
   'barrage': 'barrage',
   'protect_ice': 'iceshatter',
   'counterburn': 'counterburn',

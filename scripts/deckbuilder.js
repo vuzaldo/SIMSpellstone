@@ -1626,6 +1626,7 @@ var showAdvancedFilters = function (skill) {
 		case 'ignite':
 		case 'leech':
 		case 'magicfield':
+		case 'mark':
 		case 'nullify':
 		case 'pierce':
 		case 'poison':
