@@ -283,7 +283,7 @@ var SKILL_DATA = {
 	},
 	"mark": {
 		"desc": "Marks a random target with Hex upon first activation. Chooses a new mark when the current mark dies. Ignores Invisibility.",
-		"icon": "eagle_eye",
+		"icon": "bind",
 		"name": "Mark",
 		"order": 155,
 		"type": "earlyActivation"
